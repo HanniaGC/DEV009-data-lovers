@@ -1,6 +1,11 @@
-import { example } from './data.js';
-// import data from './data/lol/lol.js';
-import data from './data/pokemon/pokemon.js';
-// import data from './data/rickandmorty/rickandmorty.js';
+import data from "./data/rickandmorty/rickandmorty.js";
+//console.log(data);
+const charactersImg = document.querySelector(".characters__img");
 
-console.log(example, data);
+data.results.forEach((element) => {
+  charactersImg.innerHTML += `
+  <div class="img">
+    <div class="img--label">${element.name}</div>
+    <img src="${element.image}" />
+  </div>`;
+});

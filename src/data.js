@@ -1,9 +1,10 @@
 // estas funciones son de ejemplo
-
-export const example = () => {
-  return 'example';
+export const data = () => {
+  return "data";
 };
 
-export const anotherExample = () => {
-  return 'OMG';
-};
+//const Image = data().filter(function(item)) {
+//return item.includes("image")
+//}
+
+//console.log ["results"][1]["image"];
