@@ -1,41 +1,54 @@
-// import { example } from './data.js';
+import data from "./data/rickandmorty/rickandmorty.js";
+//console.log(data);
+const charactersImg = document.querySelector(".characters__img");
+const charactersDate = document.querySelector(".characters__date");
+const section1 = document.getElementById("section1");
 
-import data from './data/rickandmorty/rickandmorty.js';
+data.results.slice(0, 29).forEach((element) => {
+  const characterHTML = `
+  <button class="img" style="height: 200px; width: 200px;">
+    <img src="${element.image}" data-name="${element.name}" data-species="${element.species}" data-gender="${element.gender}" data-origin="${element.origin.name}" data-location="${element.location.name}" />
+    <div class="img--label">${element.name}</div>
+  </button>
+`;
+  charactersImg.innerHTML += characterHTML;
+});
+const episodesList = document.getElementById("episodes");
+episodesList.style.display = "none";
 
-console.log(data.results);
+charactersImg.addEventListener("click", (event) => {
+  if (event.target.tagName === "IMG") {
+    episodesList.style.display = "block";
+    const characterData = {
+      image: event.target.src,
+      name: event.target.dataset.name,
+      species: event.target.dataset.species,
+      gender: event.target.dataset.gender,
+      origin: event.target.dataset.origin,
+      location: event.target.dataset.location,
+    };
 
-const charactersImg = document.querySelector(".characters_img");
-
-data.results.slice(0, 30).forEach(element => {
-    charactersImg.innerHTML += `
-        <div class="img">
-        <img src="${element.image}" />
-            <div class="img--label">${element.name}</div>
-        
-        </div>`;
-        
+    showCharacterData(characterData);
+    section1.style.display = "none";
+  }
 });
 
-const charactersDate = document.querySelector("#info_character")
+function showCharacterData(data) {
 
-data.results.slice(0, 29).forEach((descrip) => {
-  charactersDate.innerHTML += `
-  <div class="imgen">
-      <img src="${descrip.image}" />
-      <p class="nam">Nombre: ${descrip.name}</p>
-      <p class="species">Especie: ${descrip.species}</p>
-      <p class="gender">Genero: ${descrip.gender}</p>
-      <p class="origin">Lugar de origen: ${descrip.origin.name}</p>
-      <p class="live">Lugar donde vive: ${descrip.location.name}</p>
-  </div>`;
-})
-
-//const showData = document.querySelector(".imge_character");
-
-//data.results.forEach(Characterinf => {
-//    info_character.innerHTML += `
-   // < div class="imge_character">
-   // <img src="${element.image}" />
-   // <div class = 
-
-   //</div> )
+  charactersDate.innerHTML = `
+    <div class="image">
+      <img src="${data.image}" />
+      <p class="name">Nombre: ${data.name}</p>
+      <p class="species">Especie: ${data.species}</p>
+      <p class="gender">Genero: ${data.gender}</p>
+      <p class="origin">Lugar de origen: ${data.origin}</p>
+      <p class="location">Lugar donde vive: ${data.location}</p>
+    </div>
+    <select name="episodes" id="episodes">
+            <option value="episode_1">Capitulos</option>
+            <option value="episode_2">Capitulos 1</option>
+            <option value="episode_3">Capitulos 2</option>
+            <option value="episode_4">Capitulos 3</option>
+          </select>
+  `;
+}

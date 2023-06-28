@@ -1,47 +1,60 @@
 header {
-    
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
+
 body {
-    background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi18jMbMy3FCpxMeJg0wIz6PDB72mSAdrPBs-dWFaujI-GRgWiZQEH_9wEOSvsFMsoJ0hF4KQ93zJA8iWgprptnHegqQ0FrymDeP0RXf3EGD3MBpwV4m0ZeOvZApLYO5Q1GaJcHYv793uXFMh0gS4EsBMWWcCu4Gf5idUCvb4wHB1lHu_MYkjpBhgRLHQ/w1600/RICK%20AND%20MORTY%20GALAXY%20WALLPAPER%201272023.png");
-    background-size: 100%;
+  background-color: #8ec5fc;
+  background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
 }
+
 .main-container {
-    width: 100%;
-    margin: 0 auto;
-  }
-  
-  h2 {
-   text-align: center;
-   font-size: 30px;
-   padding-top: 25px;
-   padding-bottom: 15;
-  }
-  
-  .characters_img {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    font-size: 20px;
-  }  
-  
-  .img {
-    width: 200px;
-    height: 200px;
-    margin: 10px;
-    display: grid;
-    
-  }
-  
-  .img img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-  }
-  
-  .img--label {
-    padding: 10px;
-    color: white;
-    text-align:center;
-  }
+  width: 100%;
+  margin: auto;
+}
+
+h2 {
+  text-align: center;
+  font-size: 30px;
+  padding-top: 25px;
+  padding-bottom: 15px;
+}
+
+.characters__img {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  vertical-align: middle;
+}
+
+.img {
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+  display: inline;
+  font-size: 15px;
+}
+
+.img img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.img--label {
+  padding: 10px;
+  text-align: center;
+}
+
+.characters__date {
+  display: block;
+  padding: 15px;  
+}
+
+p {
+  font-size: 20px; 
+}
+
+
+
+
