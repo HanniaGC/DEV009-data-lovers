@@ -4,17 +4,16 @@ const charactersImg = document.querySelector(".characters__img");
 const charactersDate = document.querySelector(".characters__date");
 const section1 = document.getElementById("section1");
 
-
 data.results.slice(0, 29).forEach((element) => {
   const characterHTML = `
   <button class="img" style="height: 200px; width: 200px;">
     <img src="${element.image}" data-name="${element.name}" data-species="${element.species}" data-gender="${element.gender}" data-origin="${element.origin.name}" data-location="${element.location.name}" />
-    <div class="img--label">${element.name}</div>          
+    <div class="img--label">${element.name}</div>
   </button>
 `;
   charactersImg.innerHTML += characterHTML;
-})
-const episodesList = document.getElementById("episodes")
+});
+const episodesList = document.getElementById("episodes");
 episodesList.style.display = "none";
 
 charactersImg.addEventListener("click", (event) => {
@@ -43,7 +42,7 @@ function showCharacterData(data) {
       <p class="species">Especie: ${data.species}</p>
       <p class="gender">Genero: ${data.gender}</p>
       <p class="origin">Lugar de origen: ${data.origin}</p>
-      <p class="live">Lugar donde vive: ${data.location}</p>
+      <p class="location">Lugar donde vive: ${data.location}</p>
     </div>
     <select name="episodes" id="episodes">
             <option value="episode_1">Capitulos</option>
