@@ -17,7 +17,7 @@ const episodesList = document.getElementById("episodes");
 episodesList.style.display = "none";
 
 charactersImg.addEventListener("click", (event) => {
-  if (event.target.tagName === "IMG") {    
+  if (event.target.tagName === "IMG") {
     const characterData = {
       image: event.target.src,
       name: event.target.dataset.name,
