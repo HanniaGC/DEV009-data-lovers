@@ -18,6 +18,7 @@ episodesList.style.display = "none";
 
 charactersImg.addEventListener("click", (event) => {
   if (event.target.tagName === "IMG") {
+    episodesList.style.display = "block";
     const characterData = {
       image: event.target.src,
       name: event.target.dataset.name,
@@ -33,6 +34,7 @@ charactersImg.addEventListener("click", (event) => {
 });
 
 function showCharacterData(data) {
+
   charactersDate.innerHTML = `
     <div class="image">
       <img src="${data.image}" />
