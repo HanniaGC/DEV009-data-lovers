@@ -2,6 +2,8 @@ import data from "./data/rickandmorty/rickandmorty.js";
 //console.log(data);
 const charactersImg = document.querySelector(".characters__img");
 const charactersDate = document.querySelector(".characters__date");
+const section1 = document.getElementById("section1");
+
 
 data.results.slice(0, 29).forEach((element) => {
   const characterHTML = `
@@ -24,6 +26,7 @@ charactersImg.addEventListener("click", (event) => {
       location: event.target.dataset.location,
     };
     showCharacterData(characterData);
+    section1.style.display = "none";
   }
 });
 
