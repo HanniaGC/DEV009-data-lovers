@@ -1,10 +1,8 @@
 // estas funciones son de ejemplo
-export function filterByEpisodes (data, episode) {
-  return data.filter((data) =>)
+export const suma =(primero,segundo)=>{
+  return primero+segundo
 }
-
-
-//const EP_Characters = data.filter(data => data.results ===)
-
-var newArray = arr.filter(callback(currentValue["url", index["episode", "results"]])
-console.log(newArray)
+export const filtradoPorEspecie=(data,)=>{
+  // procesas y filtras
+  // return resultado
+}
