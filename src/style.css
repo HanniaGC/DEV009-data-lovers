@@ -47,13 +47,15 @@ h2 {
 }
 
 .characters__date {
-  display: block;
-  padding: 15px;  
+  display: flex;
+  
 }
 
 p {
   font-size: 20px; 
 }
+
+
 
 
 

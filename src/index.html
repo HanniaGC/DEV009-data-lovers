@@ -19,6 +19,17 @@
           <!-- <div class="img--label">Rick Sanchez</div>  -->
           <!-- </div>  -->
         </div>
+        <div id="selectSpecies">
+          <form id="filterForm">
+            <label for="speciesSelect">Filtrar por especie:</label>
+            <select name="species" id="speciesSelect">
+              <option value="human">Human</option>
+              <option value="humanoid">Humanoid</option>
+              <option value="alien">Alien</option>
+            </select>
+            <button type="submit" addeventlistener="filtrarDatos()">Filtrar</button>
+          </form>  
+        </div>
       </section>
       <section id="date_characters">
         <div class="characters__date">
@@ -30,12 +41,12 @@
           <!-- <p class="location">Dimension</p>  -->
           <!-- <p class="episodes">Capitulos</p>  -->
           <!-- </div> -->
-          <select name="episodes" id="episodes">
+          <!-- <select name="episodes" id="episodes"> -->
             <!-- <option value="episode_1">Capitulos</option> -->
             <!-- <option value="episode_2">Capitulos 1</option> -->
             <!-- <option value="episode_3">Capitulos 2</option> -->
             <!-- <option value="episode_4">Capitulos 3</option> -->
-          </select>
+          <!-- </select> -->
         </div>
       </section>
       <script src="main.js" type="module"></script>
