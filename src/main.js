@@ -97,10 +97,8 @@ function showCharacterData(data) {
       <p class="episode">Episodios: ${data.episode}</p>
     </div>
     <select name="episodes" id="episodes">
-            <option value="episode_1">Capitulos</option>
-            <option value="episode_2">Capitulos 1</option>
-            <option value="episode_3">Capitulos 2</option>
-            <option value="episode_4">Capitulos 3</option>
+            <option value="episode">Capitulos:${data.episode}</option>
+            
           </select>
   `;
 }
