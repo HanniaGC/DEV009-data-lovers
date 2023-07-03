@@ -19,6 +19,4 @@ export function filterBySpecies(dataCard, species) {
   return filteredData;
 }
 
-
 //export function filterByEpisodes(dataCard, episode) {
-
