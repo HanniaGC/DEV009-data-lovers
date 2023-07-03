@@ -1,10 +1,13 @@
 import data from "./data/rickandmorty/rickandmorty.js";
 import { filterBySpecies } from "./data.js";
+//import { filterByEpisodes } from "./data.js";
 
 const charactersImg = document.querySelector(".characters__img");
 const charactersDate = document.querySelector(".characters__date");
 const section1 = document.getElementById("section1");
 const dataCard = data.results.slice(0, 29);
+//let tableCap = document.getElementById("table_cap");
+//console.log(dataCard)
 
 // Función para mostrar los personajes
 function displayCharacters() {
@@ -24,28 +27,14 @@ function displayCharacters() {
 // Mostrar los personajes al cargar la página
 displayCharacters();
 
-//Crear el menú desplegable debajo de los personajes
-
-//filterForm.innerHTML = `
-//<label for="speciesSelect">Filtrar por especie:</label>
-// <select name="species" id="speciesSelect">
-// <option value="human">Human</option>
-//<option value="humanoid">Humanoid</option>
-//<option value="alien">Alien</option>
-//</select>
-//<button type="submit">Filtrar</button>
-//`;
-//charactersImg.insertAdjacentElement("afterend", filterForm);
+charactersImg.insertAdjacentElement("afterend", filterForm);
 
 // Agregar el evento de submit al formulario
-const filterForm = document.getElementById("filterForm")
-
 filterForm.addEventListener("submit", (event) => {
   event.preventDefault();
   const speciesSelect = document.getElementById("speciesSelect");
   const selectedSpecies = speciesSelect.value;
   filterBySpeciesAndDisplay(selectedSpecies);
-  console.log(selectedSpecies)
 });
 
 // Función para filtrar los personajes por especie y mostrar los resultados
@@ -84,7 +73,7 @@ charactersImg.addEventListener("click", (event) => {
     showCharacterData(characterData);
     section1.style.display = "none";
   }
-}); 
+});
 
 function showCharacterData(data) {
   charactersDate.innerHTML = `
@@ -97,5 +86,29 @@ function showCharacterData(data) {
       <p class="location">Lugar donde vive: ${data.location}</p>
       <p class="episode">Episodios: ${data.episode}</p>
     </div>
-  `;
+    <select name="episodes" id="episodes">
+            <option value="episode">Capitulos:${data.episode}</option>
+    </select>`;
 }
+
+function filteredSeason() {
+  return dataCard.filter(function (episode) {
+    return episode > 3;
+  });
+}
+console.log(filteredSeason);
+
+
+
+/*filterForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const seasonSelect = document.getElementById("seasonSelect");
+  const selectedSeason = seasonSelect.value;
+  filterBySeasonAndDisplay(selectedSeason);
+});
+
+// Función para filtrar los personajes por especie y mostrar los resultados
+function filterBySeasonAndDisplay(episode) {
+  const filteredSeason = filterByEpisodes(dataCard, episode);
+  displayFilteredData(filteredSeason)
+}*/
