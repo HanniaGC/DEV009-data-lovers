@@ -35,6 +35,7 @@
       </section>
       <section id="date_characters">
         <div class="characters__date">
+          
           <!-- <div class="image" id="character-details-1"> -->
           <!-- <p class="name">Morty Smith</p>  -->
           <!-- <p class="species">Humano</p>  -->
@@ -105,19 +106,16 @@
         </div>
         
         <div id="selectEpisodes">
-          <form id="filterSeason">
+          <form id="filterForm2">
             <label for="seasonSelect">Participaciones:</label>
             <select name="season" id="seasonSelect">
-              <option value="episode">Cuáles Participan más</option>
-              <option value="episode">Cuáles participan menos</option>              
+              <option value="most">Cuáles Participan más</option>
+              <option value="least">Cuáles participan menos</option>              
             </select>
-            <button type="submit" addeventlistener="filtrarSeason()">
-              Filtrar
-            </button>
+            <button type="submit">Filtrar</button>
           </form>
         </div>
-      </section>
-      
+      </section>      
       <script src="main.js" type="module"></script>
     </main>
   </body>

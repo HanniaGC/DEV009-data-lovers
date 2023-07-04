@@ -1,13 +1,11 @@
 import data from "./data/rickandmorty/rickandmorty.js";
 import { filterBySpecies } from "./data.js";
-//import { filterByEpisodes } from "./data.js";
+import { filterByEpisodeCount } from "./data.js";
 
 const charactersImg = document.querySelector(".characters__img");
 const charactersDate = document.querySelector(".characters__date");
 const section1 = document.getElementById("section1");
 const dataCard = data.results.slice(0, 29);
-//let tableCap = document.getElementById("table_cap");
-//console.log(dataCard)
 
 // Función para mostrar los personajes
 function displayCharacters() {
@@ -27,7 +25,7 @@ function displayCharacters() {
 // Mostrar los personajes al cargar la página
 displayCharacters();
 
-charactersImg.insertAdjacentElement("afterend", filterForm);
+//charactersImg.insertAdjacentElement("afterend", filterForm);
 
 // Agregar el evento de submit al formulario
 filterForm.addEventListener("submit", (event) => {
@@ -49,26 +47,22 @@ function displayFilteredData(filteredData) {
   filteredData.forEach((element) => {
     const characterHTML = `
       <button class="img" style="height: 200px; width: 200px;">
-        <img src="${element.image}" data-name="${element.name}" data-species="${element.species}" data-gender="${element.gender}" data-origin="${element.origin.name}" data-location="${element.location.name}" data-episode="${element.episode}" />
-        <div class="img--label">${element.name}</div>
+        <img src="${element.image}" data-name="${element.name}" data-species="${element.species}" data-gender="${element.gender}" data-origin="${element.origin.name}" data-location="${element.location.name}" />       
       </button>
     `;
-
     charactersImg.innerHTML += characterHTML;
   });
 }
 
 charactersImg.addEventListener("click", (event) => {
   if (event.target.tagName === "IMG") {
-    episodesList.style.display = "block";
     const characterData = {
       image: event.target.src,
       name: event.target.dataset.name,
       species: event.target.dataset.species,
       gender: event.target.dataset.gender,
       origin: event.target.dataset.origin,
-      location: event.target.dataset.location,
-      episode: event.target.dataset.episode,
+      location: event.target.dataset.location,      
     };
 
     showCharacterData(characterData);
@@ -77,7 +71,6 @@ charactersImg.addEventListener("click", (event) => {
 });
 
 function showCharacterData(data) {
-
   charactersDate.innerHTML = `
     <div class="image">
       <img src="${data.image}" />
@@ -86,31 +79,24 @@ function showCharacterData(data) {
       <p class="gender">Género: ${data.gender}</p>
       <p class="origin">Lugar de origen: ${data.origin}</p>
       <p class="location">Lugar donde vive: ${data.location}</p>
-      <p class="episode">Episodios: ${data.episode}</p>
     </div>
-    <select name="episodes" id="episodes">
-            <option value="episode">Capitulos:${data.episode}</option>
-    </select>`;
+   `;
 }
 
-function filteredSeason() {
-  return dataCard.filter(function (episode) {
-    return episode > 3;
-  });
-}
-console.log(filteredSeason);
-
-
-
-/*filterForm.addEventListener("submit", (event) => {
+// Agregar el evento de submit al segundo formulario
+filterForm2.addEventListener("submit", (event) => {
   event.preventDefault();
+
   const seasonSelect = document.getElementById("seasonSelect");
-  const selectedSeason = seasonSelect.value;
-  filterBySeasonAndDisplay(selectedSeason);
+  const filterType = seasonSelect.value;
+
+  // Filtrar los personajes por episodio
+  const filteredData1 = filterByEpisodeCount(dataCard, filterType);
+
+  // Mostrar los personajes filtrados
+  displayFilteredData(filteredData1);
 });
 
-// Función para filtrar los personajes por especie y mostrar los resultados
-function filterBySeasonAndDisplay(episode) {
-  const filteredSeason = filterByEpisodes(dataCard, episode);
-  displayFilteredData(filteredSeason)
-}*/
+
+
+

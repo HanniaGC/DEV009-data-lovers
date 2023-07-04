@@ -41,11 +41,6 @@ h2 {
   object-fit: cover;
 }
 
-.img--label {
-  padding: 10px;
-  text-align: center;
-}
-
 .characters__date {
   display: flex;
   
