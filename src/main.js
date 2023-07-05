@@ -67,7 +67,7 @@ charactersImg.addEventListener("click", (event) => {
 
     showCharacterData(characterData);
     section1.style.display = "none"
-
+ hideFilterForm();
   }
 });
 
@@ -97,6 +97,12 @@ filterForm2.addEventListener("submit", (event) => {
   // Mostrar los personajes filtrados
   displayFilteredData(filteredData1);
 });
+
+function hideFilterForm() {
+  if (filterForm){
+    filterForm.style.display = "none";
+  }
+}
 
 
 
