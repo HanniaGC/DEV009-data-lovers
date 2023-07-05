@@ -15,7 +15,7 @@ body {
 
 h2 {
   text-align: center;
-  font-size: 30px;
+  font-size: 40px;
   padding-top: 25px;
   padding-bottom: 15px;
 }
@@ -41,19 +41,25 @@ h2 {
   object-fit: cover;
 }
 
-.img--label {
-  padding: 10px;
-  text-align: center;
-}
-
 .characters__date {
-  display: block;
-  padding: 15px;  
+  display: flex;
+  
 }
 
 p {
   font-size: 20px; 
 }
+
+#tblEpisodes {
+  justify-content: center;
+  display: flex;
+  font-size: 30px;
+}
+
+
+
+
+
 
 
 
