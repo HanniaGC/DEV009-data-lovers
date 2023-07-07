@@ -104,6 +104,13 @@ function hideFilterForm() {
   }
 }
 
+const backButton = document.getElementById("backButton");
 
+backButton.addEventListener("click", () => {
+
+  section1.style.display = "block";
+
+  charactersDate.innerHTML = "";
+});
 
 
