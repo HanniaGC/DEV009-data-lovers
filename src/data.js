@@ -24,20 +24,22 @@ export function filterByEpisodeCount(dataCard, filterType) {
 
   return filteredData1;
 }
-export const orderAZ =(a, b) => {
-  if (a.name > b.name) {
+
+export const orderAZ = (a, b) => {
+  if (a.name.toLowerCase() > b.name.toLowerCase()) {
     return 1;
   } else {
     return -1;
   }
 }
 
-export const orderZA =(a, b) => {
-  if (a.name > b.name) {
+export const orderZA = (a, b) => {
+  if (a.name.toLowerCase() > b.name.toLowerCase()) {
     return -1;
   } else {
     return 1;
-  }
+  } 
+    
 }
 
 

@@ -4,15 +4,15 @@ import { filterBySpecies, filterByEpisodeCount, orderAZ, orderZA } from "./data.
 const charactersImg = document.querySelector(".characters__img");
 const charactersDate = document.querySelector(".characters__date");
 const section1 = document.getElementById("section1");
-let dataCard = data.results.slice(0, 29);
+let dataCard = data.results.slice(0, 30);
 
 // Función para mostrar los personajes en seccion 1
-function displayCharacters() {
+function displayCharacters(info) {
   charactersImg.innerHTML = "";
-  dataCard.forEach((element) => {
+  info.forEach((element) => {
     const characterHTML = `
       <button class="img" style="height: 200px; width: 200px;">
-        <img src="${element.image}" data-name="${element.name}" data-species="${element.species}" data-gender="${element.gender}" data-origin="${element.origin.name}" data-location="${element.location.name}" data-episode="${element.episode}" />
+        <img src="${element.image}" data-name="${element.name}"/>
         <div class="img--label">${element.name}</div>
       </button>
     `;
@@ -22,7 +22,7 @@ function displayCharacters() {
 }
 
 // Mostrar los personajes al cargar la página
-displayCharacters();
+displayCharacters(dataCard);
 
 //charactersImg.insertAdjacentElement("afterend", filterForm);
 
@@ -46,7 +46,7 @@ function displayFilteredData(filteredData) {
   filteredData.forEach((element) => {
     const characterHTML = `
       <button class="img" style="height: 200px; width: 200px;">
-        <img src="${element.image}" data-name="${element.name}" data-species="${element.species}" data-gender="${element.gender}" data-origin="${element.origin.name}" data-location="${element.location.name}" />       
+        <img src="${element.image}" data-name="${element.name}"/>       
       </button>
     `;
     charactersImg.innerHTML += characterHTML;
@@ -107,18 +107,19 @@ const selectElement = document.getElementById("ordered");
 
 selectElement.addEventListener("click", (event) => {
   event.preventDefault();
-  let selectedValue = selectElement.value;
+  let selectedValue = event.target.value;
+  let order = [...dataCard]
   if (selectedValue === "A-Z") {
-    const a_z = dataCard.sort(orderAZ);
+    order.sort(orderAZ);
   } else if (selectedValue === "Z-A") {
-   const z_a = dataCard.sort(orderZA);
+   order.sort(orderZA);
+  } else {
+    order = dataCard
   }
+  console.log(order)
+  console.log('selected', event)
+  displayCharacters(order)
 });
-
-function orderByA_ZAndDisplay(order) {
-  const orderdData = orderByA(dataCard, );
-  displayFilteredData(filteredData);
-}
 
 const backButton = document.getElementById("backButton");
 

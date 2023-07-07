@@ -57,7 +57,7 @@ p {
 }
 
 #backButton {
-  background-image: url("src/images/Mi proyecto.png");
+  background-image: url("./images/Mi proyecto.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
