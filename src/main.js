@@ -1,13 +1,12 @@
 import data from "./data/rickandmorty/rickandmorty.js";
-import { filterBySpecies } from "./data.js";
-import { filterByEpisodeCount } from "./data.js";
+import { filterBySpecies, filterByEpisodeCount, orderAZ, orderZA } from "./data.js";
 
 const charactersImg = document.querySelector(".characters__img");
 const charactersDate = document.querySelector(".characters__date");
 const section1 = document.getElementById("section1");
-const dataCard = data.results.slice(0, 29);
+let dataCard = data.results.slice(0, 29);
 
-// Función para mostrar los personajes
+// Función para mostrar los personajes en seccion 1
 function displayCharacters() {
   charactersImg.innerHTML = "";
   dataCard.forEach((element) => {
@@ -102,6 +101,23 @@ function hideFilterForm() {
   if (filterForm){
     filterForm.style.display = "none";
   }
+}
+
+const selectElement = document.getElementById("ordered");
+
+selectElement.addEventListener("click", (event) => {
+  event.preventDefault();
+  let selectedValue = selectElement.value;
+  if (selectedValue === "A-Z") {
+    const a_z = dataCard.sort(orderAZ);
+  } else if (selectedValue === "Z-A") {
+   const z_a = dataCard.sort(orderZA);
+  }
+});
+
+function orderByA_ZAndDisplay(order) {
+  const orderdData = orderByA(dataCard, );
+  displayFilteredData(filteredData);
 }
 
 const backButton = document.getElementById("backButton");
