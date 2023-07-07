@@ -6,6 +6,7 @@
     <html lang="es"></html>
     <title>Data Lovers</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <header>
     <img src="./images/Rick_and_Morty.svg.png" width="500" />
@@ -33,26 +34,21 @@
           </form>
         </div>
       </section>
-      <section id="date_characters">
-        <div class="characters__date">
-          
+      <section id="date_characters" >
+        <!-- <a href="#section1"><img src="./images/Portalregreso.png" height="33" width="100" alt="Botón"</a> -->
+        <div class="characters__date">          
           <!-- <div class="image" id="character-details-1"> -->
           <!-- <p class="name">Morty Smith</p>  -->
           <!-- <p class="species">Humano</p>  -->
           <!-- <p class="gender">Masculino</p>  -->
           <!-- <p class="origin">Tierra</p>  -->
-          <!-- <p class="location">Dimension</p>  -->
-          <!-- <p class="episodes">Capitulos</p>  -->
+          <!-- <p class="location">Dimension</p>  -->         
           <!-- </div> -->
-          <!-- <select name="episodes" id="episodes"> -->
-          <!-- <option value="episode_1">Capitulos</option> -->
-          <!-- <option value="episode_2">Capitulos 1</option> -->
-          <!-- <option value="episode_3">Capitulos 2</option> -->
-          <!-- <option value="episode_4">Capitulos 3</option> -->
-          <!-- </select> -->
+          
+        
         </div>
-      </section>
-      <section>
+      </section>  
+      <section class="Episodes">
         <h2>Episodios</h2>
         <div id="tblEpisodes">
           <table class="table" border="1">
@@ -115,7 +111,28 @@
             <button type="submit">Filtrar</button>
           </form>
         </div>
-      </section>      
+      </section>    
+      <section class="location">
+        <h2>Planetas</h2>
+        <div id="planets">
+          <img src="./images/earth.png" width="250" />
+          <img src="./images/abadango.png" width="250" />
+          <img src="./images/testicle.png" width="250" />
+          <img src="./images/citadel.png" width="250" />
+          <img src="./images/worldenders.png" width="250" />
+          <img src="./images/anatomypark.png" width="250" />
+          <img src="./images/unknow.png" width="250" />
+          <img src="./images/interdimensional.png" width="250" />
+          <img src="./images/fieldresort.png" width="250" />
+          <img src="./images/signus.png" width="250" />
+          <img src="./images/apocalyptic.png" width="250" />
+          <img src="./images/purgeplanet.png" width="250" />
+        </div>
+        <h2>Recuento de personajes por ubicación</h2>
+        <div id="chart-container"> 
+          <canvas id="graphic"></canvas>
+        </div>
+      </section>  
       <script src="main.js" type="module"></script>
     </main>
   </body>

@@ -25,5 +25,19 @@ export function filterByEpisodeCount(dataCard, filterType) {
   return filteredData1;
 }
 
+export function computeStats(data) {
+  const locationCount = {};
 
+  data.forEach((item) => {
+    const location = item.location.name;
+
+    if (locationCount[location]) {
+      locationCount[location]++;
+    } else {
+      locationCount[location] = 1;
+    }
+  });
+
+  return locationCount;
+}
 

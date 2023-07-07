@@ -1,11 +1,13 @@
 import data from "./data/rickandmorty/rickandmorty.js";
 import { filterBySpecies } from "./data.js";
 import { filterByEpisodeCount } from "./data.js";
+import { computeStats } from "./data.js";
 
 const charactersImg = document.querySelector(".characters__img");
 const charactersDate = document.querySelector(".characters__date");
 const section1 = document.getElementById("section1");
 const dataCard = data.results.slice(0, 29);
+console.log(dataCard);
 
 // Función para mostrar los personajes
 function displayCharacters() {
@@ -13,11 +15,10 @@ function displayCharacters() {
   dataCard.forEach((element) => {
     const characterHTML = `
       <button class="img" style="height: 200px; width: 200px;">
-        <img src="${element.image}" data-name="${element.name}" data-species="${element.species}" data-gender="${element.gender}" data-origin="${element.origin.name}" data-location="${element.location.name}" data-episode="${element.episode}" />
+        <img src="${element.image}" data-name="${element.name}" data-species="${element.species}" data-gender="${element.gender}" data-origin="${element.origin.name}" data-location="${element.location.name}" data-episode="${element.episode}"/>
         <div class="img--label">${element.name}</div>
       </button>
     `;
-
     charactersImg.innerHTML += characterHTML;
   });
 }
@@ -28,6 +29,7 @@ displayCharacters();
 //charactersImg.insertAdjacentElement("afterend", filterForm);
 
 // Agregar el evento de submit al formulario
+//const filterForm = document.getElementById("filterForm")
 filterForm.addEventListener("submit", (event) => {
   event.preventDefault();
   const speciesSelect = document.getElementById("speciesSelect");
@@ -47,7 +49,8 @@ function displayFilteredData(filteredData) {
   filteredData.forEach((element) => {
     const characterHTML = `
       <button class="img" style="height: 200px; width: 200px;">
-        <img src="${element.image}" data-name="${element.name}" data-species="${element.species}" data-gender="${element.gender}" data-origin="${element.origin.name}" data-location="${element.location.name}" />       
+        <img src="${element.image}" data-name="${element.name}" data-species="${element.species}" data-gender="${element.gender}" data-origin="${element.origin.name}" data-location="${element.location.name}" /> 
+        <div class="img--label">${element.name}</div>      
       </button>
     `;
     charactersImg.innerHTML += characterHTML;
@@ -62,13 +65,19 @@ charactersImg.addEventListener("click", (event) => {
       species: event.target.dataset.species,
       gender: event.target.dataset.gender,
       origin: event.target.dataset.origin,
-      location: event.target.dataset.location,      
+      location: event.target.dataset.location,
     };
 
     showCharacterData(characterData);
     section1.style.display = "none";
+    hideFilterForm();
   }
 });
+function hideFilterForm() {
+  if (filterForm) {
+    filterForm.style.display = "none";
+  }
+}
 
 function showCharacterData(data) {
   charactersDate.innerHTML = `
@@ -79,7 +88,7 @@ function showCharacterData(data) {
       <p class="gender">Género: ${data.gender}</p>
       <p class="origin">Lugar de origen: ${data.origin}</p>
       <p class="location">Lugar donde vive: ${data.location}</p>
-    </div>
+    </div>    
    `;
 }
 
@@ -97,6 +106,34 @@ filterForm2.addEventListener("submit", (event) => {
   displayFilteredData(filteredData1);
 });
 
+//Calcular el recuento de personajes por ubicación utilizando la función computeStats()
+const locationStats = computeStats(dataCard);
 
-
-
+const graphicData = document.getElementById("graphic");
+const chart = new Chart(graphicData, {
+  type: "bar",
+  data: {
+    labels: Object.keys(locationStats),
+    datasets: [
+      {
+        label: "Personajes por Planeta",
+        backgroundColor: "#3FA142",
+        data: Object.values(locationStats)
+      },
+    ],
+  },
+  options: {
+    scales: {
+      x: {
+        grid: {
+          display: false, // Ocultar las líneas de la cuadrícula en el eje X
+        },
+      },
+      y: {
+        grid: {
+          display: false, // Ocultar las líneas de la cuadrícula en el eje Y
+        },
+      },
+    },
+  },
+});
