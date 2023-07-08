@@ -3,10 +3,10 @@ header {
   justify-content: center;
 }
 
-body {
+/*body {
   background-color: #c7f9cc;
   background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
-}
+}*/
 
 .main-container {
   width: 100%;
@@ -20,7 +20,7 @@ h2 {
   padding-bottom: 15px;
 }
 
-.characters__img {
+.characters__img { 
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -41,10 +41,6 @@ h2 {
   object-fit: cover;
 }
 
-.characters__date {
-  display: flex;
-}
-
 p {
   font-size: 20px;
 }
@@ -60,6 +56,13 @@ p {
   justify-content: center;
   height: 500px;
   width: auto;
+}
+
+#planets {
+  display: flex;
+  flex-direction: row;  
+  flex-wrap: wrap;
+  justify-content: center
 }
 
 

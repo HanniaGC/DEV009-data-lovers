@@ -1,13 +1,13 @@
 import data from "./data/rickandmorty/rickandmorty.js";
-import { filterBySpecies } from "./data.js";
-import { filterByEpisodeCount } from "./data.js";
-import { computeStats } from "./data.js";
+import {
+  filterBySpecies,
+  filterByEpisodeCount /*, computeStats*/,
+} from "./data.js";
 
 const charactersImg = document.querySelector(".characters__img");
 const charactersDate = document.querySelector(".characters__date");
 const section1 = document.getElementById("section1");
 const dataCard = data.results.slice(0, 29);
-console.log(dataCard);
 
 // Función para mostrar los personajes
 function displayCharacters() {
@@ -15,7 +15,7 @@ function displayCharacters() {
   dataCard.forEach((element) => {
     const characterHTML = `
       <button class="img" style="height: 200px; width: 200px;">
-        <img src="${element.image}" data-name="${element.name}" data-species="${element.species}" data-gender="${element.gender}" data-origin="${element.origin.name}" data-location="${element.location.name}" data-episode="${element.episode}"/>
+        <img src="${element.image}" data-name="${element.name}"/>
         <div class="img--label">${element.name}</div>
       </button>
     `;
@@ -29,7 +29,7 @@ displayCharacters();
 //charactersImg.insertAdjacentElement("afterend", filterForm);
 
 // Agregar el evento de submit al formulario
-//const filterForm = document.getElementById("filterForm")
+const filterForm = document.getElementById("filterForm");
 filterForm.addEventListener("submit", (event) => {
   event.preventDefault();
   const speciesSelect = document.getElementById("speciesSelect");
@@ -49,7 +49,7 @@ function displayFilteredData(filteredData) {
   filteredData.forEach((element) => {
     const characterHTML = `
       <button class="img" style="height: 200px; width: 200px;">
-        <img src="${element.image}" data-name="${element.name}" data-species="${element.species}" data-gender="${element.gender}" data-origin="${element.origin.name}" data-location="${element.location.name}" /> 
+        <img src="${element.image}" data-name="${element.name}" /> 
         <div class="img--label">${element.name}</div>      
       </button>
     `;
@@ -93,6 +93,7 @@ function showCharacterData(data) {
 }
 
 // Agregar el evento de submit al segundo formulario
+const filterForm2 = document.getElementById("filterForm2");
 filterForm2.addEventListener("submit", (event) => {
   event.preventDefault();
 
@@ -107,10 +108,10 @@ filterForm2.addEventListener("submit", (event) => {
 });
 
 //Calcular el recuento de personajes por ubicación utilizando la función computeStats()
-const locationStats = computeStats(dataCard);
+//const locationStats = computeStats(dataCard);
 
-const graphicData = document.getElementById("graphic");
-const chart = new Chart(graphicData, {
+//const graphicData = document.getElementById("graphic");
+/*const chart = new Chart(graphicData, {
   type: "bar",
   data: {
     labels: Object.keys(locationStats),
@@ -118,7 +119,7 @@ const chart = new Chart(graphicData, {
       {
         label: "Personajes por Planeta",
         backgroundColor: "#3FA142",
-        data: Object.values(locationStats)
+        data: Object.values(locationStats),
       },
     ],
   },
@@ -136,4 +137,4 @@ const chart = new Chart(graphicData, {
       },
     },
   },
-});
+});*/
