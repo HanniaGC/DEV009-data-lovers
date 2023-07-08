@@ -1,19 +1,18 @@
 import data from "./data/rickandmorty/rickandmorty.js";
-import { filterBySpecies } from "./data.js";
-import { filterByEpisodeCount } from "./data.js";
+import { filterBySpecies, filterByEpisodeCount, orderAZ, orderZA } from "./data.js";
 
 const charactersImg = document.querySelector(".characters__img");
 const charactersDate = document.querySelector(".characters__date");
 const section1 = document.getElementById("section1");
-const dataCard = data.results.slice(0, 29);
+let dataCard = data.results.slice(0, 30);
 
-// Función para mostrar los personajes
-function displayCharacters() {
+// Función para mostrar los personajes en seccion 1
+function displayCharacters(info) {
   charactersImg.innerHTML = "";
-  dataCard.forEach((element) => {
+  info.forEach((element) => {
     const characterHTML = `
       <button class="img" style="height: 200px; width: 200px;">
-        <img src="${element.image}" data-name="${element.name}" data-species="${element.species}" data-gender="${element.gender}" data-origin="${element.origin.name}" data-location="${element.location.name}" data-episode="${element.episode}" />
+        <img src="${element.image}" data-name="${element.name}"/>
         <div class="img--label">${element.name}</div>
       </button>
     `;
@@ -23,7 +22,7 @@ function displayCharacters() {
 }
 
 // Mostrar los personajes al cargar la página
-displayCharacters();
+displayCharacters(dataCard);
 
 //charactersImg.insertAdjacentElement("afterend", filterForm);
 
@@ -47,7 +46,7 @@ function displayFilteredData(filteredData) {
   filteredData.forEach((element) => {
     const characterHTML = `
       <button class="img" style="height: 200px; width: 200px;">
-        <img src="${element.image}" data-name="${element.name}" data-species="${element.species}" data-gender="${element.gender}" data-origin="${element.origin.name}" data-location="${element.location.name}" />       
+        <img src="${element.image}" data-name="${element.name}"/>       
       </button>
     `;
     charactersImg.innerHTML += characterHTML;
@@ -104,6 +103,29 @@ function hideFilterForm() {
   }
 }
 
+const selectElement = document.getElementById("ordered");
 
+selectElement.addEventListener("click", (event) => {
+  event.preventDefault();
+  let selectedValue = event.target.value;
+  let order = [...dataCard]
+  if (selectedValue === "A-Z") {
+    order.sort(orderAZ);
+  } else if (selectedValue === "Z-A") {
+   order.sort(orderZA);
+  } else {
+    order = dataCard
+  }
+  
+  displayFilteredData(order)
+});
 
+const backButton = document.getElementById("backButton");
+
+backButton.addEventListener("click", () => {
+
+  section1.style.display = "block";
+
+  charactersDate.innerHTML = "";
+});
 
