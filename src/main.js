@@ -116,9 +116,8 @@ selectElement.addEventListener("click", (event) => {
   } else {
     order = dataCard
   }
-  console.log(order)
-  console.log('selected', event)
-  displayCharacters(order)
+  
+  displayFilteredData(order)
 });
 
 const backButton = document.getElementById("backButton");
