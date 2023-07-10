@@ -1,10 +1,10 @@
+
 export function filterBySpecies(dataCard, species) {
-  const filteredData = dataCard.filter((element) => {
+  const filteredData = data.filter((element) => {
     return element.species.toLowerCase() === species.toLowerCase();
   });
   return filteredData;
 }
-
 
 export function filterByEpisodeCount(dataCard, filterType) {
   // Obtener el número de episodios de cada personaje
