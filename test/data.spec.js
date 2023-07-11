@@ -3,7 +3,6 @@ import {
   filterByEpisodeCount,
   computeStats,
   orderAZ,
-  orderZA,
 } from "../src/data.js";
 
 const data = [
@@ -98,6 +97,19 @@ const data = [
   },
 ];
 
+describe("filterByEpisodeCount", () => {
+  it("is a function", () => {
+    expect(typeof filterByEpisodeCount).toBe("function");
+  });
+  it("deberia retorna uno de los personajes que participa más ", () => {
+    const result = filterByEpisodeCount(data, "most");
+    expect(result[0].name).toEqual("Rick Sanchez");
+  });
+  it("deberia retorna uno de los personajes que participa menos ", () => {
+    expect(filterByEpisodeCount(data, "least")[0].name).toEqual("Abadango Cluster Princess");
+  });
+});
+
 describe("filterBySpecies", () => {
   it("is a function", () => {
     expect(typeof filterBySpecies).toBe("function");
@@ -112,14 +124,6 @@ describe("filterBySpecies", () => {
   });
 });
 //const filterType = "most";
-describe("filterByEpisodeCount", () => {
-  it("is a function", () => {
-    expect(typeof filterByEpisodeCount).toEqual("function");
-  });
-  it("deberia retorna uno de los personajes que participa más ", () => {
-    expect(filterByEpisodeCount({ name: "Rick Sanchez"}, {name: "Abadango Cluster Princess"})[0].name).toEqual("Rick Sanchez");
-  });
-});
 
 describe("computeStats", () => {
   it("is a function", () => {
@@ -138,15 +142,12 @@ describe("orderAZ", () => {
     expect(typeof orderAZ).toBe("function");
   });
   it("deberia ordenar los personajes de a-z", () => {
-    expect(orderAZ({ name: "Abadango Cluster Princess"}, { name: "Summer Smith"})).toBe(-1);
-  });
-});
-describe("orderZA", () => {
-  it("is a function", () => {
-    expect(typeof orderZA).toBe("function");
+    expect(orderAZ(data, "A-Z")[0].name).toEqual("Abadango Cluster Princess");
+    expect(orderAZ(data, "A-Z")[1].name).toEqual("Aqua Morty");
   });
   it("deberia ordenar los personajes de z-a", () => {
-    expect(orderZA({ name: "Abadango Cluster Princess"}, { name: "Summer Smith"})).toBe(1);
+    expect(orderAZ(data, "Z-A")[0].name).toEqual("Summer Smith");
+    expect(orderAZ(data, "Z-A")[1].name).toEqual("Rick Sanchez");
   });
 });
 /* describe('validator.isValid', () => {

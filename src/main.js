@@ -3,7 +3,6 @@ import {
   filterBySpecies,
   filterByEpisodeCount /*, computeStats*/,
   orderAZ,
-  orderZA,
 } from "./data.js";
 
 const charactersImg = document.querySelector(".characters__img");
@@ -115,12 +114,11 @@ selectElement.addEventListener("click", (event) => {
   event.preventDefault();
   const selectedValue = event.target.value;
   let order = [...dataCard];
-  if (selectedValue === "A-Z") {
-    order.sort(orderAZ);
-  } else if (selectedValue === "Z-A") {
-    order.sort(orderZA);
-  } else {
+  if (selectedValue === "all") {
     order = dataCard;
+  } else { 
+    console.log(orderAZ(order, selectedValue))
+    order = orderAZ(order, selectedValue)
   }
 
   displayFilteredData(order);

@@ -6,12 +6,13 @@ export function filterBySpecies(data, species) {
 }
 
 export function filterByEpisodeCount(data, filterType) {
-  
-  const episodeCounts = data.map((element) => element.episode.length);
+  // Obtener el número de episodios de cada personaje
+  const episodeCounts = data.map(element => element.episode.lenght);
+  console.log(episodeCounts);
   const maxCount = Math.max(...episodeCounts);
   const minCount = Math.min(...episodeCounts);
 
- 
+  // Filtrar los personajes según el tipo de filtro
   let filteredData1 = [];
   if (filterType === "most") {
     filteredData1 = data.filter(
@@ -22,29 +23,20 @@ export function filterByEpisodeCount(data, filterType) {
       (element) => element.episode.length === minCount
     );
   }
-
+  console.log(filteredData1)
   return filteredData1;
 }
 
-export const orderAZ = (a, b) => {
-  if (a.name.toLowerCase() < b.name.toLowerCase()) {
-    return -1;
-  } else if (a.name.toLowerCase() > b.name.toLowerCase()) {
-    return 1;
-  } else {
-    return 0;
-  }
+export const orderAZ = (data, select) => { 
+  return data.sort((a,b) => {
+    if (a.name.toLowerCase() < b.name.toLowerCase() && select === "A-Z") {
+      return -1;
+    } else if (select === "Z-A") {
+      return b.name.localeCompare(a.name);
+    }
+  })
 };
 
-export const orderZA = (a, b) => {
-  if (a.name.toLowerCase() < b.name.toLowerCase()) {
-    return 1;
-  } else if (a.name.toLowerCase() > b.name.toLowerCase()) {
-    return -1;
-  } else {
-    return 0;
-  }
-};
 export function computeStats(data) {
   const locationCount = {};
 
