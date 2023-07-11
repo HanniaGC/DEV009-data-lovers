@@ -41,5 +41,19 @@ export const orderZA = (a, b) => {
   } 
     
 }
+export function computeStats(data) {
+  const locationCount = {};
 
+  data.forEach((item) => {
+    const location = item.location.name;
+
+    if (locationCount[location]) {
+      locationCount[location]++;
+    } else {
+      locationCount[location] = 1;
+    }
+  });
+
+  return locationCount;
+}
 
