@@ -1,7 +1,5 @@
 import data from "./data/rickandmorty/rickandmorty.js";
-import {
-  filterBySpecies,
-  filterByEpisodeCount /*, computeStats*/,
+import {filterBySpecies, filterByEpisodeCount /*, computeStats*/, orderAZ, orderZA
 } from "./data.js";
 
 const charactersImg = document.querySelector(".characters__img");
@@ -107,12 +105,6 @@ filterForm2.addEventListener("submit", (event) => {
   displayFilteredData(filteredData1);
 });
 
-function hideFilterForm() {
-  if (filterForm){
-    filterForm.style.display = "none";
-  }
-}
-
 const selectElement = document.getElementById("ordered");
 
 selectElement.addEventListener("click", (event) => {
@@ -139,8 +131,8 @@ backButton.addEventListener("click", () => {
   charactersDate.innerHTML = "";
 });
 
-//Calcular el recuento de personajes por ubicación utilizando la función computeStats()
-//const locationStats = computeStats(dataCard);
+Calcular el recuento de personajes por ubicación utilizando la función computeStats()
+const locationStats = computeStats(dataCard);
 
 //const graphicData = document.getElementById("graphic");
 /*const chart = new Chart(graphicData, {
