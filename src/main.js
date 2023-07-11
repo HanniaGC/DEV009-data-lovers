@@ -1,11 +1,15 @@
 import data from "./data/rickandmorty/rickandmorty.js";
-import {filterBySpecies, filterByEpisodeCount /*, computeStats*/, orderAZ, orderZA
+import {
+  filterBySpecies,
+  filterByEpisodeCount /*, computeStats*/,
+  orderAZ,
+  orderZA,
 } from "./data.js";
 
 const charactersImg = document.querySelector(".characters__img");
 const charactersDate = document.querySelector(".characters__date");
 const section1 = document.getElementById("section1");
-let dataCard = data.results.slice(0, 30);
+const dataCard = data.results.slice(0, 30);
 
 // Función para mostrar los personajes en seccion 1
 function displayCharacters(info) {
@@ -109,30 +113,29 @@ const selectElement = document.getElementById("ordered");
 
 selectElement.addEventListener("click", (event) => {
   event.preventDefault();
-  let selectedValue = event.target.value;
-  let order = [...dataCard]
+  const selectedValue = event.target.value;
+  let order = [...dataCard];
   if (selectedValue === "A-Z") {
     order.sort(orderAZ);
   } else if (selectedValue === "Z-A") {
-   order.sort(orderZA);
+    order.sort(orderZA);
   } else {
-    order = dataCard
+    order = dataCard;
   }
-  
-  displayFilteredData(order)
+
+  displayFilteredData(order);
 });
 
 const backButton = document.getElementById("backButton");
 
 backButton.addEventListener("click", () => {
-
   section1.style.display = "block";
 
   charactersDate.innerHTML = "";
 });
 
-Calcular el recuento de personajes por ubicación utilizando la función computeStats()
-const locationStats = computeStats(dataCard);
+//Calcular el recuento de personajes por ubicación utilizando la función computeStats()
+//const locationStats = computeStats(dataCard);
 
 //const graphicData = document.getElementById("graphic");
 /*const chart = new Chart(graphicData, {

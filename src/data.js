@@ -1,46 +1,50 @@
-export function filterBySpecies(dataCard, species) {
-  const filteredData = dataCard.filter((element) => {
+export function filterBySpecies(data, species) {
+  const filteredData = data.filter((element) => {
     return element.species.toLowerCase() === species.toLowerCase();
   });
   return filteredData;
 }
 
-
-export function filterByEpisodeCount(dataCard, filterType) {
-  // Obtener el número de episodios de cada personaje
-  const episodeCounts = dataCard.map((element) => element.episode.length);
-
-  // Obtener el valor máximo y mínimo de episodios
+export function filterByEpisodeCount(data, filterType) {
+  
+  const episodeCounts = data.map((element) => element.episode.length);
   const maxCount = Math.max(...episodeCounts);
   const minCount = Math.min(...episodeCounts);
 
-  // Filtrar los personajes según el tipo de filtro
+ 
   let filteredData1 = [];
   if (filterType === "most") {
-    filteredData1 = dataCard.filter((element) => element.episode.length === maxCount);
+    filteredData1 = data.filter(
+      (element) => element.episode.length === maxCount
+    );
   } else if (filterType === "least") {
-    filteredData1 = dataCard.filter((element) => element.episode.length === minCount);
+    filteredData1 = data.filter(
+      (element) => element.episode.length === minCount
+    );
   }
 
   return filteredData1;
 }
 
 export const orderAZ = (a, b) => {
-  if (a.name.toLowerCase() > b.name.toLowerCase()) {
+  if (a.name.toLowerCase() < b.name.toLowerCase()) {
+    return -1;
+  } else if (a.name.toLowerCase() > b.name.toLowerCase()) {
     return 1;
   } else {
-    return -1;
+    return 0;
   }
-}
+};
 
 export const orderZA = (a, b) => {
-  if (a.name.toLowerCase() > b.name.toLowerCase()) {
+  if (a.name.toLowerCase() < b.name.toLowerCase()) {
+    return 1;
+  } else if (a.name.toLowerCase() > b.name.toLowerCase()) {
     return -1;
   } else {
-    return 1;
-  } 
-    
-}
+    return 0;
+  }
+};
 export function computeStats(data) {
   const locationCount = {};
 
@@ -56,4 +60,3 @@ export function computeStats(data) {
 
   return locationCount;
 }
-

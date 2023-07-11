@@ -2,6 +2,8 @@ import {
   filterBySpecies,
   filterByEpisodeCount,
   computeStats,
+  orderAZ,
+  orderZA,
 } from "../src/data.js";
 
 const data = [
@@ -49,6 +51,27 @@ const data = [
     ],
   },
   {
+    name: "Summer Smith",
+    species: "Human",
+    origin: {
+      name: "Earth (Replacement Dimension)",
+    },
+    location: {
+      name: "Earth (Replacement Dimension)",
+    },
+    episode: [
+      "https://rickandmortyapi.com/api/episode/6",
+      "https://rickandmortyapi.com/api/episode/7",
+      "https://rickandmortyapi.com/api/episode/8",
+      "https://rickandmortyapi.com/api/episode/9",
+      "https://rickandmortyapi.com/api/episode/10",
+      "https://rickandmortyapi.com/api/episode/11",
+      "https://rickandmortyapi.com/api/episode/12",
+      "https://rickandmortyapi.com/api/episode/14",
+      "https://rickandmortyapi.com/api/episode/15",
+    ],
+  },
+  {
     name: "Abadango Cluster Princess",
     species: "Alien",
     origin: {
@@ -93,22 +116,39 @@ describe("filterByEpisodeCount", () => {
   it("is a function", () => {
     expect(typeof filterByEpisodeCount).toEqual("function");
   });
-  /*it("deberia retorna uno de los personajes que participa más ", () => {
-    expect(filterByEpisodeCount(data, filterType)[0].name).toEqual(
-      "Rick Sanchez"
-    );
-  });*/
+  it("deberia retorna uno de los personajes que participa más ", () => {
+    expect(filterByEpisodeCount({ name: "Rick Sanchez"}, {name: "Abadango Cluster Princess"})[0].name).toEqual("Rick Sanchez");
+  });
 });
 
 describe("computeStats", () => {
   it("is a function", () => {
     expect(typeof computeStats).toBe("function");
   });
-  it('debería retornar Rick Sanchez para "Earth (Replacement Dimension)"', () => {
-    expect(computeStats(data)).toEqual(location);
+  it('debería retornar 2 para "Earth (Replacement Dimension)" y 1 para los demás planetas', () => {
+    expect(computeStats(data)).toEqual({
+      Abadango: 1,
+      "Citadel of Ricks": 1,
+      "Earth (Replacement Dimension)": 2,
+    });
   });
 });
-
+describe("orderAZ", () => {
+  it("is a function", () => {
+    expect(typeof orderAZ).toBe("function");
+  });
+  it("deberia ordenar los personajes de a-z", () => {
+    expect(orderAZ({ name: "Abadango Cluster Princess"}, { name: "Summer Smith"})).toBe(-1);
+  });
+});
+describe("orderZA", () => {
+  it("is a function", () => {
+    expect(typeof orderZA).toBe("function");
+  });
+  it("deberia ordenar los personajes de z-a", () => {
+    expect(orderZA({ name: "Abadango Cluster Princess"}, { name: "Summer Smith"})).toBe(1);
+  });
+});
 /* describe('validator.isValid', () => {
     it('debería ser una función', () => {
       expect(typeof validator.isValid).toBe('function');
