@@ -1,4 +1,8 @@
-import { filterBySpecies, computeStats } from "../src/data.js";
+import {
+  filterBySpecies,
+  filterByEpisodeCount,
+  computeStats,
+} from "../src/data.js";
 
 const data = [
   {
@@ -75,22 +79,35 @@ describe("filterBySpecies", () => {
   it("is a function", () => {
     expect(typeof filterBySpecies).toBe("function");
   });
-
-  it("retorna data filtrada por humano", () => {
-    expect(filterBySpecies(data)).toBe("Alien");
+  it('deberia retorna Abadango Cluster Princess "species"', () => {
+    expect(filterBySpecies(data, "Alien")[0].name).toEqual(
+      "Abadango Cluster Princess"
+    );
   });
+  it('deberia retorna "Aqua Morty"', () => {
+    expect(filterBySpecies(data, "Humanoid")[0].name).toEqual("Aqua Morty");
+  });
+});
+//const filterType = "most";
+describe("filterByEpisodeCount", () => {
+  it("is a function", () => {
+    expect(typeof filterByEpisodeCount).toEqual("function");
+  });
+  /*it("deberia retorna uno de los personajes que participa más ", () => {
+    expect(filterByEpisodeCount(data, filterType)[0].name).toEqual(
+      "Rick Sanchez"
+    );
+  });*/
 });
 
 describe("computeStats", () => {
   it("is a function", () => {
     expect(typeof computeStats).toBe("function");
   });
-});
-
-/*it("valida calculo de personajes por planeta", () => {
-    expect(computeStats(data.location.name)).toBe("Abadango");
+  it('debería retornar Rick Sanchez para "Earth (Replacement Dimension)"', () => {
+    expect(computeStats(data)).toEqual(location);
   });
-});*/
+});
 
 /* describe('validator.isValid', () => {
     it('debería ser una función', () => {
