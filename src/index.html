@@ -13,6 +13,32 @@
   </header>
   <body>
     <main class="main-container">
+      <nav>
+        <div id="selectSpecies">
+          <form id="filterForm">
+            <label for="speciesSelect">Filtrar por especie:</label>
+            <select name="species" id="speciesSelect">
+              <option value="">Selecciona la especie</option>
+              <option value="human">Humano</option>
+              <option value="humanoid">Humanoid</option>
+              <option value="alien">Alien</option>
+            </select>
+            <button type="submit" addeventlistener="filtrarDatos()">
+              Filtrar
+            </button>
+          </form>
+        </div>
+        <div id="a-z">
+          <form id="ordered">
+            <label for="ordered">Ordenar por:</label>
+            <select name="A-Z" id="orderFor">
+              <option value="all">Selecciona el orden</option>
+              <option value="A-Z">A-Z</option>
+              <option value="Z-A">Z-A</option>
+            </select>
+          </form>
+        </div>
+      </nav>
       <section class="characters">
         <h2 class="characters__title">Personajes</h2>
         <div class="characters__img" id="section1">
@@ -20,7 +46,7 @@
           <!-- <div class="img--label">Rick Sanchez</div>  -->
           <!-- </div>  -->
         </div>
-        <div id="selectSpecies">
+        <!--<div id="selectSpecies">
           <form id="filterForm">
             <label for="speciesSelect">Filtrar por especie:</label>
             <select name="species" id="speciesSelect">
@@ -32,7 +58,7 @@
               Filtrar
             </button>
           </form>
-        </div>
+        </div>-->
       </section>
       <section id="date_characters">
         <div class="characters__date">
@@ -44,6 +70,7 @@
           <!-- <p class="location">Dimension</p>  -->
           <!-- </div> -->
         </div>
+        <button id="backButton">Regresar</button>
       </section>
       <section class="Episodes">
         <h2>Episodios</h2>
@@ -112,7 +139,7 @@
       <section id="planets">
         <div class="card">
           <div class="face front">
-            <img src="./images/earth.png" />
+            <img src="./images/earth.png" width="250" />
             <h4>HABITANTES</h4>
           </div>
           <div class="face back">
@@ -129,7 +156,7 @@
         </div>
         <div class="card">
           <div class="face front">
-            <img src="./images/abadango.png" />
+            <img src="./images/abadango.png" width="250" />
             <h4>HABITANTES</h4>
           </div>
           <div class="face back">
@@ -139,7 +166,7 @@
         </div>
         <div class="card">
           <div class="face front">
-            <img src="./images/anatomypark.png" />
+            <img src="./images/anatomypark.png" width="250" />
             <h4>HABITANTES</h4>
           </div>
           <div class="face back">
@@ -150,7 +177,7 @@
         </div>
         <div class="card">
           <div class="face front">
-            <img src="./images/apocalyptic.png" />
+            <img src="./images/apocalyptic.png" width="250" />
             <h4>HABITANTES</h4>
           </div>
           <div class="face back">
@@ -160,7 +187,7 @@
         </div>
         <div class="card">
           <div class="face front">
-            <img src="./images/citadel.png" />
+            <img src="./images/citadel.png" width="250" />
             <h4>HABITANTES</h4>
           </div>
           <div class="face back">
@@ -176,7 +203,7 @@
         </div>
         <div class="card">
           <div class="face front">
-            <img src="./images/fieldresort.png" />
+            <img src="./images/fieldresort.png" width="250" />
             <h4>HABITANTES</h4>
           </div>
           <div class="face back">
@@ -186,7 +213,7 @@
         </div>
         <div class="card">
           <div class="face front">
-            <img src="./images/interdimensional.png" />
+            <img src="./images/interdimensional.png" width="250" />
             <h4>HABITANTES</h4>
           </div>
           <div class="face back">
@@ -198,7 +225,7 @@
         </div>
         <div class="card">
           <div class="face front">
-            <img src="./images/purgeplanet.png" />
+            <img src="./images/purgeplanet.png" width="250" />
             <h4>HABITANTES</h4>
           </div>
           <div class="face back">
@@ -208,7 +235,7 @@
         </div>
         <div class="card">
           <div class="face front">
-            <img src="./images/signus.png" />
+            <img src="./images/signus.png" width="250" />
             <h4>HABITANTES</h4>
           </div>
           <div class="face back">
@@ -218,7 +245,7 @@
         </div>
         <div class="card">
           <div class="face front">
-            <img src="./images/worldenders.png" />
+            <img src="./images/worldenders.png" width="250" />
             <h4>HABITANTES</h4>
           </div>
           <div class="face back">
@@ -228,7 +255,7 @@
         </div>
         <div class="card">
           <div class="face front">
-            <img src="./images/unknow.png" />
+            <img src="./images/unknow.png" width="250" />
             <h4>HABITANTES</h4>
           </div>
           <div class="face back">
@@ -239,7 +266,7 @@
         </div>
         <div class="card">
           <div class="face front">
-            <img src="./images/testicle.png" />
+            <img src="./images/testicle.png" width="250" />
             <h4>HABITANTES</h4>
           </div>
           <div class="face back">

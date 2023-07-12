@@ -1,5 +1,5 @@
-export function filterBySpecies(dataCard, species) {
-  const filteredData = dataCard.filter((element) => {
+export function filterBySpecies(data, species) {
+  const filteredData = data.filter((element) => {
     return element.species.toLowerCase() === species.toLowerCase();
   });
   return filteredData;
@@ -27,6 +27,16 @@ export function filterByEpisodeCount(data, filterType) {
   console.log(filteredData1)
   return filteredData1;
 }
+
+export const orderAZ = (data, select) => { 
+  return data.sort((a,b) => {
+    if (a.name.toLowerCase() < b.name.toLowerCase() && select === "A-Z") {
+      return -1;
+    } else if (select === "Z-A") {
+      return b.name.localeCompare(a.name);
+    }
+  })
+};
 
 export function computeStats(data) {
   const locationCount = {};

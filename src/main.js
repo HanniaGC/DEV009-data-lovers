@@ -1,15 +1,19 @@
 import data from "./data/rickandmorty/rickandmorty.js";
-import { filterBySpecies, filterByEpisodeCount, computeStats } from "./data.js";
+import {
+  filterBySpecies,
+  filterByEpisodeCount , computeStats,
+  orderAZ,
+} from "./data.js";
 
 const charactersImg = document.querySelector(".characters__img");
 const charactersDate = document.querySelector(".characters__date");
 const section1 = document.getElementById("section1");
 const dataCard = data.results.slice(0, 30);
 
-// Función para mostrar los personajes
-function displayCharacters() {
+// Función para mostrar los personajes en seccion 1
+function displayCharacters(info) {
   charactersImg.innerHTML = "";
-  dataCard.forEach((element) => {
+  info.forEach((element) => {
     const characterHTML = `
       <button class="img" style="height: 200px; width: 200px;">
         <img src="${element.image}" data-name="${element.name}"/>
@@ -21,7 +25,7 @@ function displayCharacters() {
 }
 
 // Mostrar los personajes al cargar la página
-displayCharacters();
+displayCharacters(dataCard);
 
 //charactersImg.insertAdjacentElement("afterend", filterForm);
 
@@ -109,6 +113,30 @@ filterForm2.addEventListener("submit", (event) => {
 
   // Mostrar los personajes filtrados
   displayFilteredData(filteredData1);
+});
+
+const selectElement = document.getElementById("ordered");
+
+selectElement.addEventListener("click", (event) => {
+  event.preventDefault();
+  const selectedValue = event.target.value;
+  let order = [...dataCard];
+  if (selectedValue === "all") {
+    order = dataCard;
+  } else { 
+    console.log(orderAZ(order, selectedValue))
+    order = orderAZ(order, selectedValue)
+  }
+
+  displayFilteredData(order);
+});
+
+const backButton = document.getElementById("backButton");
+
+backButton.addEventListener("click", () => {
+  section1.style.display = "block";
+
+  charactersDate.innerHTML = "";
 });
 
 //Calcular el recuento de personajes por ubicación utilizando la función computeStats()

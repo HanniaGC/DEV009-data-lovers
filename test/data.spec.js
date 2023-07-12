@@ -2,6 +2,7 @@ import {
   filterBySpecies,
   filterByEpisodeCount,
   computeStats,
+  orderAZ,
 } from "../src/data.js";
 
 const data = [
@@ -96,6 +97,19 @@ const data = [
   },
 ];
 
+describe("filterByEpisodeCount", () => {
+  it("is a function", () => {
+    expect(typeof filterByEpisodeCount).toBe("function");
+  });
+  it("deberia retorna uno de los personajes que participa más ", () => {
+    const result = filterByEpisodeCount(data, "most");
+    expect(result[0].name).toEqual("Rick Sanchez");
+  });
+  it("deberia retorna uno de los personajes que participa menos ", () => {
+    expect(filterByEpisodeCount(data, "least")[0].name).toEqual("Abadango Cluster Princess");
+  });
+});
+
 describe("filterBySpecies", () => {
   it("is a function", () => {
     expect(typeof filterBySpecies).toBe("function");
@@ -109,15 +123,7 @@ describe("filterBySpecies", () => {
     expect(filterBySpecies(data, "Humanoid")[0].name).toEqual("Aqua Morty");
   });
 });
-
-describe("filterByEpisodeCount", () => {
-  it("is a function", () => {
-    expect(typeof filterByEpisodeCount).toEqual("function");
-  });
-  it("deberia retorna Rick Sanchez como uno de los personajes que participa más", () => {
-    expect(filterByEpisodeCount(data, "maxCount")).toEqual("most");
-  });
-});
+//const filterType = "most";
 
 describe("computeStats", () => {
   it("is a function", () => {
@@ -131,3 +137,33 @@ describe("computeStats", () => {
     });
   });
 });
+describe("orderAZ", () => {
+  it("is a function", () => {
+    expect(typeof orderAZ).toBe("function");
+  });
+  it("deberia ordenar los personajes de a-z", () => {
+    expect(orderAZ(data, "A-Z")[0].name).toEqual("Abadango Cluster Princess");
+    expect(orderAZ(data, "A-Z")[1].name).toEqual("Aqua Morty");
+  });
+  it("deberia ordenar los personajes de z-a", () => {
+    expect(orderAZ(data, "Z-A")[0].name).toEqual("Summer Smith");
+    expect(orderAZ(data, "Z-A")[1].name).toEqual("Rick Sanchez");
+  });
+});
+/* describe('validator.isValid', () => {
+    it('debería ser una función', () => {
+      expect(typeof validator.isValid).toBe('function');
+    });
+
+    it('debería retornar true para "4083952015263"', () => {
+      expect(validator.isValid('4083952015263')).toBe(true);
+    });
+
+    it('debería retornar true para "79927398713"', () => {
+      expect(validator.isValid('79927398713')).toBe(true);
+    });
+
+    it('debería retornar false para "1234567890"', () => {
+      expect(validator.isValid('1234567890')).toBe(false);
+    });
+  });*/
