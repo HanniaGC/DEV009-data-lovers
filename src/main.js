@@ -1,7 +1,7 @@
 import data from "./data/rickandmorty/rickandmorty.js";
 import {
   filterBySpecies,
-  filterByEpisodeCount /*, computeStats*/,
+  filterByEpisodeCount , computeStats,
   orderAZ,
 } from "./data.js";
 
@@ -92,6 +92,13 @@ function showCharacterData(data) {
     </div>    
    `;
 }
+/*const backButton = document.getElementById("backButton");
+
+backButton.addEventListener("click", () => {
+  backButton.style.display = "block";
+  section1.style.display = "block";
+  charactersDate.innerHTML = "";
+});*/
 
 // Agregar el evento de submit al segundo formulario
 const filterForm2 = document.getElementById("filterForm2");
@@ -133,18 +140,25 @@ backButton.addEventListener("click", () => {
 });
 
 //Calcular el recuento de personajes por ubicación utilizando la función computeStats()
-//const locationStats = computeStats(dataCard);
+const locationStats = computeStats(dataCard);
 
-//const graphicData = document.getElementById("graphic");
-/*const chart = new Chart(graphicData, {
+const graphicData = document.getElementById("graphic");
+Chart.defaults.font.size = 20;
+const chart = new Chart(graphicData, {
   type: "bar",
   data: {
     labels: Object.keys(locationStats),
     datasets: [
       {
-        label: "Personajes por Planeta",
-        backgroundColor: "#3FA142",
+        label: "Personajes",
         data: Object.values(locationStats),
+
+        backgroundColor: [
+          "rgb(231, 76, 60)",
+          "rgb(41, 128, 185)",
+          "rgb(26, 188, 156)",
+          "rgb(241, 196, 15)",
+        ],
       },
     ],
   },
@@ -162,4 +176,4 @@ backButton.addEventListener("click", () => {
       },
     },
   },
-});*/
+});

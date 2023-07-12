@@ -7,8 +7,9 @@ export function filterBySpecies(data, species) {
 
 export function filterByEpisodeCount(data, filterType) {
   // Obtener el número de episodios de cada personaje
-  const episodeCounts = data.map(element => element.episode.lenght);
-  console.log(episodeCounts);
+  const episodeCounts = data.map((element) => element.episode.length);
+
+  // Obtener el valor máximo y mínimo de episodios
   const maxCount = Math.max(...episodeCounts);
   const minCount = Math.min(...episodeCounts);
 
@@ -22,7 +23,7 @@ export function filterByEpisodeCount(data, filterType) {
     filteredData1 = data.filter(
       (element) => element.episode.length === minCount
     );
-  }
+  } 
   console.log(filteredData1)
   return filteredData1;
 }
@@ -49,6 +50,5 @@ export function computeStats(data) {
       locationCount[location] = 1;
     }
   });
-
   return locationCount;
 }
