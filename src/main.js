@@ -1,13 +1,10 @@
 import data from "./data/rickandmorty/rickandmorty.js";
-import {
-  filterBySpecies,
-  filterByEpisodeCount /*, computeStats*/,
-} from "./data.js";
+import { filterBySpecies, filterByEpisodeCount, computeStats } from "./data.js";
 
 const charactersImg = document.querySelector(".characters__img");
 const charactersDate = document.querySelector(".characters__date");
 const section1 = document.getElementById("section1");
-const dataCard = data.results.slice(0, 29);
+const dataCard = data.results.slice(0, 30);
 
 // Función para mostrar los personajes
 function displayCharacters() {
@@ -91,6 +88,13 @@ function showCharacterData(data) {
     </div>    
    `;
 }
+/*const backButton = document.getElementById("backButton");
+
+backButton.addEventListener("click", () => {
+  backButton.style.display = "block";
+  section1.style.display = "block";
+  charactersDate.innerHTML = "";
+});*/
 
 // Agregar el evento de submit al segundo formulario
 const filterForm2 = document.getElementById("filterForm2");
@@ -108,18 +112,25 @@ filterForm2.addEventListener("submit", (event) => {
 });
 
 //Calcular el recuento de personajes por ubicación utilizando la función computeStats()
-//const locationStats = computeStats(dataCard);
+const locationStats = computeStats(dataCard);
 
-//const graphicData = document.getElementById("graphic");
-/*const chart = new Chart(graphicData, {
+const graphicData = document.getElementById("graphic");
+Chart.defaults.font.size = 20;
+const chart = new Chart(graphicData, {
   type: "bar",
   data: {
     labels: Object.keys(locationStats),
     datasets: [
       {
-        label: "Personajes por Planeta",
-        backgroundColor: "#3FA142",
+        label: "Personajes",
         data: Object.values(locationStats),
+
+        backgroundColor: [
+          "rgb(231, 76, 60)",
+          "rgb(41, 128, 185)",
+          "rgb(26, 188, 156)",
+          "rgb(241, 196, 15)",
+        ],
       },
     ],
   },
@@ -137,4 +148,4 @@ filterForm2.addEventListener("submit", (event) => {
       },
     },
   },
-});*/
+});

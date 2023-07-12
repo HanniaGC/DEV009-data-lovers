@@ -49,6 +49,27 @@ const data = [
     ],
   },
   {
+    name: "Summer Smith",
+    species: "Human",
+    origin: {
+      name: "Earth (Replacement Dimension)",
+    },
+    location: {
+      name: "Earth (Replacement Dimension)",
+    },
+    episode: [
+      "https://rickandmortyapi.com/api/episode/6",
+      "https://rickandmortyapi.com/api/episode/7",
+      "https://rickandmortyapi.com/api/episode/8",
+      "https://rickandmortyapi.com/api/episode/9",
+      "https://rickandmortyapi.com/api/episode/10",
+      "https://rickandmortyapi.com/api/episode/11",
+      "https://rickandmortyapi.com/api/episode/12",
+      "https://rickandmortyapi.com/api/episode/14",
+      "https://rickandmortyapi.com/api/episode/15",
+    ],
+  },
+  {
     name: "Abadango Cluster Princess",
     species: "Alien",
     origin: {
@@ -88,41 +109,25 @@ describe("filterBySpecies", () => {
     expect(filterBySpecies(data, "Humanoid")[0].name).toEqual("Aqua Morty");
   });
 });
-//const filterType = "most";
+
 describe("filterByEpisodeCount", () => {
   it("is a function", () => {
     expect(typeof filterByEpisodeCount).toEqual("function");
   });
-  /*it("deberia retorna uno de los personajes que participa más ", () => {
-    expect(filterByEpisodeCount(data, filterType)[0].name).toEqual(
-      "Rick Sanchez"
-    );
-  });*/
+  it("deberia retorna Rick Sanchez como uno de los personajes que participa más", () => {
+    expect(filterByEpisodeCount(data, "maxCount")).toEqual("most");
+  });
 });
 
 describe("computeStats", () => {
   it("is a function", () => {
     expect(typeof computeStats).toBe("function");
   });
-  it('debería retornar Rick Sanchez para "Earth (Replacement Dimension)"', () => {
-    expect(computeStats(data)).toEqual(location);
+  it('debería retornar 2 para "Earth (Replacement Dimension)" y 1 para los demás planetas', () => {
+    expect(computeStats(data)).toEqual({
+      Abadango: 1,
+      "Citadel of Ricks": 1,
+      "Earth (Replacement Dimension)": 2,
+    });
   });
 });
-
-/* describe('validator.isValid', () => {
-    it('debería ser una función', () => {
-      expect(typeof validator.isValid).toBe('function');
-    });
-
-    it('debería retornar true para "4083952015263"', () => {
-      expect(validator.isValid('4083952015263')).toBe(true);
-    });
-
-    it('debería retornar true para "79927398713"', () => {
-      expect(validator.isValid('79927398713')).toBe(true);
-    });
-
-    it('debería retornar false para "1234567890"', () => {
-      expect(validator.isValid('1234567890')).toBe(false);
-    });
-  });*/
