@@ -79,3 +79,31 @@ Listado de problemas que se detectaro con el test de usabilidad:
 * Darle un menu debajo del logo para ordenar mejor los select de filtrado y ordenado.
 * El fondo no llamaba la atencion. 
 
+##### 7. Descripcion de la funcionalidad
+
+La página principal muestra tarjetas interactivas de los personajes de "Rick and Morty". Al hacer clic en una tarjeta, te lleva a una ventana oculta que muestra la información detallada sobre el personaje, como su nombre, género, especie, entre otros datos relevantes.
+
+La página también presenta una tabla que muestra las temporadas y sus respectivos capítulos. Además, se muestran tarjetas interactivas con los nombres de los planetas, al pasar el cursor sobre estas tarjetas, se voltean y muestran una lista de los personajes que habitan en cada planeta.
+
+Se han utilizado elementos visuales y colores relacionados con la serie.
+
+Por ultimo se presenta una grafica donde al pasar el cursor por las barras se muestra la cantidad de personajes que habitanen cada uno de los planetas.
+
+#### 8. Herramientas Utilizadas
+
+Para desarrollar este proyecto se utilizaron las siguientes herramientas:
+
+HTML: Para estructurar el contenido de la página web, se creo una interfaz de usuario simple y fácil de usar.
+
+CSS: Para aplicar estilos y diseñar la interfaz de usuario.
+
+JavaScript: Para agregar funcionalidad: 
+*  Manejo de eventos del DOM para mostrar imagenes y datos.
+* Select que permite ordenar data por uno o más campos (asc y desc).
+* Filter que permite filtrar data en base a una condición.
+* Calculo agregado para cantidad de personaes por planeta y frecuencia de participación en la   
+  serie.
+
+Canva: para diseñar imágenes y paleta de colores, la cual se seleccionó para proporcionar una apariencia atractiva y legible en la página web. 
+
+Figma: Se ocupó esta herramienta para diseñar el Prototipo de alta fidelidad, y diseño dinamico para el test de usabilidad.
