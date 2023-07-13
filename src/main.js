@@ -28,34 +28,21 @@ function displayCharacters(info) {
 displayCharacters(dataCard);
 
 //charactersImg.insertAdjacentElement("afterend", filterForm);
-
+let ordereset = [...dataCard];
 // Agregar el evento de submit al formulario
 const filterForm = document.getElementById("filterForm");
-filterForm.addEventListener("submit", (event) => {
+filterForm.addEventListener("click", (event) => {
   event.preventDefault();
   const speciesSelect = document.getElementById("speciesSelect");
   const selectedSpecies = speciesSelect.value;
-  filterBySpeciesAndDisplay(selectedSpecies);
+
+    filterBySpeciesAndDisplay(selectedSpecies);
 });
 
-// Función para filtrar los personajes por especie y mostrar los resultados
+// Función para filtrar los personajes por especie y mostrar los resultado
 function filterBySpeciesAndDisplay(species) {
   const filteredData = filterBySpecies(dataCard, species);
-  displayFilteredData(filteredData);
-}
-
-// Función para mostrar los personajes filtrados
-function displayFilteredData(filteredData) {
-  charactersImg.innerHTML = "";
-  filteredData.forEach((element) => {
-    const characterHTML = `
-      <button class="img" style="height: 200px; width: 200px;">
-        <img src="${element.image}" data-name="${element.name}" /> 
-        <div class="img--label">${element.name}</div>      
-      </button>
-    `;
-    charactersImg.innerHTML += characterHTML;
-  });
+  displayCharacters(filteredData);
 }
 
 charactersImg.addEventListener("click", (event) => {
@@ -112,7 +99,7 @@ filterForm2.addEventListener("submit", (event) => {
   const filteredData1 = filterByEpisodeCount(dataCard, filterType);
 
   // Mostrar los personajes filtrados
-  displayFilteredData(filteredData1);
+  displayCharacters(filteredData1);
 });
 
 const selectElement = document.getElementById("ordered");
@@ -124,11 +111,11 @@ selectElement.addEventListener("click", (event) => {
   if (selectedValue === "all") {
     order = dataCard;
   } else { 
-    console.log(orderAZ(order, selectedValue))
+    //console.log(orderAZ(order, selectedValue))
     order = orderAZ(order, selectedValue)
   }
 
-  displayFilteredData(order);
+  displayCharacters(order);
 });
 
 const backButton = document.getElementById("backButton");

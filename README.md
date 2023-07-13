@@ -31,7 +31,9 @@ Los principales usuarios de este producto son:
 
 ### 3. Historias de usuario
 Se nos entrego una data basada en una rapida investigacion sobre la series de Rick and Morty, sobre la informacion que posrian necesitar los usuarios y basadas en esta data construimos las siguientes Historias de usuario con sus respectivos criterios de aceptacion y definiciones de terminado:
-![Historia de usuario 1](./src/images/HU1.jpeg) ![Historia de usuario 2](./src/images/HU2.jpeg) ![Historia de usuario 3](./src/images/HU3.jpeg) ![Historia de usuario 4](./src/images/HU4.jpeg)
+
+<img width="200" src="./src/images/HU1.jpeg"> <img width="200" src="./src/images/HU2.jpeg"> <img width="200" src="./src/images/HU3.jpeg"> <img width="200" src="./src/images/HU4.jpeg">
+
 #### 4. Objetivos de los Usuarios
 
 Los usuarios de esta página tienen los siguientes objetivos en relación con el producto:
@@ -62,13 +64,11 @@ Con esta solución, esperamos brindar a los seguidores de "Rick and Morty" una e
 
 Para elaborar la pagina de este proyecto comenzamos diseñando un prototipo de baja fidelidad que es el siguiente:  
 
-![Prototipo de baja](./src/images/PrototipoDeBaja1.jpeg)
-
-![Prototipo de baja](./src/images/PrototipoDeBaja2.jpeg)
+<img width="200" src="./src/images/PrototipoDeBaja1.jpeg">     <img width="200" src="./src/images/PrototipoDeBaja2.jpeg">
 
 Basado en este diseño realizamos el prototipo de alta fidelidad:
 
-![Prototipo de alta fidelidad](./src/images/PrototipoDeAlta.png)
+<img width="500" src="./src/images/PrototipoDeAlta.png">
 
 Ya listo se le hizo con figma el modo dinamico para el test de usabilidad, el cual puede verse en el siguiente link: [Prototipo en Figma dinamico](https://www.figma.com/proto/dD9cmpLmQd1FVa1Ny9CMll/Untitled?page-id=0%3A1&node-id=1-2&starting-point-node-id=1%3A2&mode=design&t=GuOBoWdgBB15zKWa-1)
 
