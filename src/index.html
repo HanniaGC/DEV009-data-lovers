@@ -6,6 +6,7 @@
     <html lang="es"></html>
     <title>Data Lovers</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <header>
     <img src="./images/Rick_and_Morty.svg.png" width="500" />
@@ -31,7 +32,7 @@
           <form id="ordered">
             <label for="ordered">Ordenar por:</label>
             <select name="A-Z" id="orderFor">
-              <option value="">Selecciona el orden</option>
+              <option value="all">Selecciona el orden</option>
               <option value="A-Z">A-Z</option>
               <option value="Z-A">Z-A</option>
             </select>
@@ -67,22 +68,15 @@
           <!-- <p class="gender">Masculino</p>  -->
           <!-- <p class="origin">Tierra</p>  -->
           <!-- <p class="location">Dimension</p>  -->
-          <!-- <p class="episodes">Capitulos</p>  -->
           <!-- </div> -->
-          <!-- <select name="episodes" id="episodes"> -->
-          <!-- <option value="episode_1">Capitulos</option> -->
-          <!-- <option value="episode_2">Capitulos 1</option> -->
-          <!-- <option value="episode_3">Capitulos 2</option> -->
-          <!-- <option value="episode_4">Capitulos 3</option> -->
-          <!-- </select> -->
         </div>
         <button id="backButton">Regresar</button>
       </section>
-      <section>
+      <section class="Episodes">
         <h2>Episodios</h2>
         <div id="tblEpisodes">
           <table class="table" border="1">
-            <thead bgcolor="#8ec5fc">
+            <thead bgcolor="#3FA142">
               <tr>
                 <th>Temporadas</th>
                 <th>Capítulos</th>
@@ -90,7 +84,7 @@
                 <th>Última emisión</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody bgcolor="#FFFFFF">
               <tr>
                 <td>Temporada 1</td>
                 <td>11</td>
@@ -130,18 +124,163 @@
             </tbody>
           </table>
         </div>
-        
         <div id="selectEpisodes">
           <form id="filterForm2">
             <label for="seasonSelect">Participaciones:</label>
             <select name="season" id="seasonSelect">
               <option value="most">Cuáles Participan más</option>
-              <option value="least">Cuáles participan menos</option>              
+              <option value="least">Cuáles participan menos</option>
             </select>
             <button type="submit">Filtrar</button>
           </form>
         </div>
-      </section>      
+      </section>
+      <h2>Planetas</h2>
+      <section id="planets">
+        <div class="card">
+          <div class="face front">
+            <img src="./images/earth.png" width="250" />
+            <h4>HABITANTES</h4>
+          </div>
+          <div class="face back">
+            <h4>HABITANTES</h4>
+            <h5>*Rick Sanchez</h5>
+            <h5>*Summer Smith</h5>
+            <h5>*Beth Smith</h5>
+            <h5>*Jerry Smith</h5>
+            <h5>*Agency Director</h5>
+            <h5>*Albert Einstein</h5>
+            <h5>*Alien Googah</h5>
+            <h5>*Amish Cyborg</h5>
+          </div>
+        </div>
+        <div class="card">
+          <div class="face front">
+            <img src="./images/abadango.png" width="250" />
+            <h4>HABITANTES</h4>
+          </div>
+          <div class="face back">
+            <h4>HABITANTES</h4>
+            <h5>*Abadango Cluster Princess</h5>
+          </div>
+        </div>
+        <div class="card">
+          <div class="face front">
+            <img src="./images/anatomypark.png" width="250" />
+            <h4>HABITANTES</h4>
+          </div>
+          <div class="face back">
+            <h4>HABITANTES</h4>
+            <h5>*Alexander</h5>
+            <h5>*Annie</h5>
+          </div>
+        </div>
+        <div class="card">
+          <div class="face front">
+            <img src="./images/apocalyptic.png" width="250" />
+            <h4>HABITANTES</h4>
+          </div>
+          <div class="face back">
+            <h4>HABITANTES</h4>
+            <h5>*Armothy</h5>
+          </div>
+        </div>
+        <div class="card">
+          <div class="face front">
+            <img src="./images/citadel.png" width="250" />
+            <h4>HABITANTES</h4>
+          </div>
+          <div class="face back">
+            <h4>HABITANTES</h4>
+            <h5>*Adjudicator Rick</h5>
+            <h5>*Alien Morty</h5>
+            <h5>*Alien Rick</h5>
+            <h5>*Antena Morty</h5>
+            <h5>*Aqua Morty</h5>
+            <h5>*Aqua Rick</h5>
+            <h5>*Artist Morty</h5>
+          </div>
+        </div>
+        <div class="card">
+          <div class="face front">
+            <img src="./images/fieldresort.png" width="250" />
+            <h4>HABITANTES</h4>
+          </div>
+          <div class="face back">
+            <h4>HABITANTES</h4>
+            <h5>*Arcade Alien</h5>
+          </div>
+        </div>
+        <div class="card">
+          <div class="face front">
+            <img src="./images/interdimensional.png" width="250" />
+            <h4>HABITANTES</h4>
+          </div>
+          <div class="face back">
+            <h4>HABITANTES</h4>
+            <h5>*Ants in my Eyes Johnson</h5>
+            <h5>*Attila Starwar</h5>
+            <h5>*Baby Legs</h5>
+          </div>
+        </div>
+        <div class="card">
+          <div class="face front">
+            <img src="./images/purgeplanet.png" width="250" />
+            <h4>HABITANTES</h4>
+          </div>
+          <div class="face back">
+            <h4>HABITANTES</h4>
+            <h5>*Arthricia</h5>
+          </div>
+        </div>
+        <div class="card">
+          <div class="face front">
+            <img src="./images/signus.png" width="250" />
+            <h4>HABITANTES</h4>
+          </div>
+          <div class="face back">
+            <h4>HABITANTES</h4>
+            <h5>*Armagheadon</h5>
+          </div>
+        </div>
+        <div class="card">
+          <div class="face front">
+            <img src="./images/worldenders.png" width="250" />
+            <h4>HABITANTES</h4>
+          </div>
+          <div class="face back">
+            <h4>HABITANTES</h4>
+            <h5>*Alan Rails</h5>
+          </div>
+        </div>
+        <div class="card">
+          <div class="face front">
+            <img src="./images/unknow.png" width="250" />
+            <h4>HABITANTES</h4>
+          </div>
+          <div class="face back">
+            <h4>HABITANTES</h4>
+            <h5>*Antenna Rick</h5>
+            <h5>*Baby Poopybutthole</h5>
+          </div>
+        </div>
+        <div class="card">
+          <div class="face front">
+            <img src="./images/testicle.png" width="250" />
+            <h4>HABITANTES</h4>
+          </div>
+          <div class="face back">
+            <h4>HABITANTES</h4>
+            <h5>*Abradolf Lincler</h5>
+          </div>
+        </div>
+      </section>
+      <h2>Recuento de personajes por ubicación</h2>
+      <section class="location">        
+        <div id="chart-container">         
+          <canvas id="graphic"></canvas>
+        </div>
+      </section>
       <script src="main.js" type="module"></script>
     </main>
   </body>
