@@ -28,22 +28,21 @@ function displayCharacters(info) {
 displayCharacters(dataCard);
 
 //charactersImg.insertAdjacentElement("afterend", filterForm);
-let ordereset = [...dataCard];
+
 // Agregar el evento de submit al formulario
-const filterForm = document.getElementById("filterForm");
+const filterForm = document.getElementById("speciesSelect");
 filterForm.addEventListener("click", (event) => {
   event.preventDefault();
-  const speciesSelect = document.getElementById("speciesSelect");
-  const selectedSpecies = speciesSelect.value;
-
-    filterBySpeciesAndDisplay(selectedSpecies);
+  const selectedSpecies = event.target.value
+  let ordereset = [...dataCard];
+  if (selectedSpecies === "reset"){
+    ordereset 
+  } else{
+    ordereset = filterBySpecies(dataCard, selectedSpecies);
+  }
+  
+    displayCharacters(ordereset);
 });
-
-// Función para filtrar los personajes por especie y mostrar los resultado
-function filterBySpeciesAndDisplay(species) {
-  const filteredData = filterBySpecies(dataCard, species);
-  displayCharacters(filteredData);
-}
 
 charactersImg.addEventListener("click", (event) => {
   if (event.target.tagName === "IMG") {
@@ -111,7 +110,7 @@ selectElement.addEventListener("click", (event) => {
   if (selectedValue === "all") {
     order = dataCard;
   } else { 
-    //console.log(orderAZ(order, selectedValue))
+
     order = orderAZ(order, selectedValue)
   }
 

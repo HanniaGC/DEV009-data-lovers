@@ -60,6 +60,7 @@ label {
   margin-right: 5px;
 }
 select {
+  height: 50px; 
   padding: 5px;
 }
 
