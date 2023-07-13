@@ -30,33 +30,19 @@ displayCharacters(dataCard);
 //charactersImg.insertAdjacentElement("afterend", filterForm);
 
 // Agregar el evento de submit al formulario
-const filterForm = document.getElementById("filterForm");
-filterForm.addEventListener("submit", (event) => {
+const filterForm = document.getElementById("speciesSelect");
+filterForm.addEventListener("click", (event) => {
   event.preventDefault();
-  const speciesSelect = document.getElementById("speciesSelect");
-  const selectedSpecies = speciesSelect.value;
-  filterBySpeciesAndDisplay(selectedSpecies);
+  const selectedSpecies = event.target.value
+  let ordereset = [...dataCard];
+  if (selectedSpecies === "reset"){
+    ordereset 
+  } else{
+    ordereset = filterBySpecies(dataCard, selectedSpecies);
+  }
+  
+    displayCharacters(ordereset);
 });
-
-// Función para filtrar los personajes por especie y mostrar los resultados
-function filterBySpeciesAndDisplay(species) {
-  const filteredData = filterBySpecies(dataCard, species);
-  displayFilteredData(filteredData);
-}
-
-// Función para mostrar los personajes filtrados
-function displayFilteredData(filteredData) {
-  charactersImg.innerHTML = "";
-  filteredData.forEach((element) => {
-    const characterHTML = `
-      <button class="img" style="height: 200px; width: 200px;">
-        <img src="${element.image}" data-name="${element.name}" /> 
-        <div class="img--label">${element.name}</div>      
-      </button>
-    `;
-    charactersImg.innerHTML += characterHTML;
-  });
-}
 
 charactersImg.addEventListener("click", (event) => {
   if (event.target.tagName === "IMG") {
@@ -112,7 +98,7 @@ filterForm2.addEventListener("submit", (event) => {
   const filteredData1 = filterByEpisodeCount(dataCard, filterType);
 
   // Mostrar los personajes filtrados
-  displayFilteredData(filteredData1);
+  displayCharacters(filteredData1);
 });
 
 const selectElement = document.getElementById("ordered");
@@ -124,11 +110,11 @@ selectElement.addEventListener("click", (event) => {
   if (selectedValue === "all") {
     order = dataCard;
   } else { 
-    console.log(orderAZ(order, selectedValue))
+
     order = orderAZ(order, selectedValue)
   }
 
-  displayFilteredData(order);
+  displayCharacters(order);
 });
 
 const backButton = document.getElementById("backButton");
