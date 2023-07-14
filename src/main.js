@@ -16,10 +16,10 @@ function displayCharacters(info) {
   charactersImg.innerHTML = "";
   info.forEach((element) => {
     const characterHTML = `
-      <button class="img" style="height: 250px; width: 200px;">
-        <img src="${element.image}" data-name="${element.name}"/>
-        <div class="img--label">${element.name}</div>
-      </button>
+    <button class="img" style="height: 250px; width: 200px;">
+    <img src="${element.image}" data-name="${element.name}" data-species="${element.species}" data-gender="${element.gender}" data-origin="${element.origin.name}" data-location="${element.location.name}" />
+    <div class="img--label">${element.name}</div>
+  </button>
     `;
     charactersImg.innerHTML += characterHTML;
   });
