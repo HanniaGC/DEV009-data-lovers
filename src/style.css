@@ -17,9 +17,14 @@ body {
   min-height: 100vh;
   background-color: #c7f9cc;
   background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);*/
+  
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
+  background: url(./images/desktop\ \(1\).jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-attachment: fixed;
 }
 
 .main-container {
@@ -60,7 +65,7 @@ label {
   margin-right: 5px;
 }
 select {
-  height: 50px; 
+  height: 50px;
   padding: 5px;
 }
 
@@ -74,12 +79,11 @@ option {
   color: #fff;
 }
 
-button{
+button {
   background-color: #ccc;
 }
 
-#selecteSpecies
-.main-container {
+#selecteSpecies .main-container {
   width: 100%;
   margin: auto;
 }
@@ -88,7 +92,7 @@ h2 {
   text-align: center;
   font-size: 40px;
   padding-top: 25px;
-  padding-bottom: 15px;
+  padding-bottom: 15px;    
 }
 
 .characters__img {
@@ -123,6 +127,7 @@ p {
 }
 
 #backButton {
+  display: none;
   background-image: url("./images/Mi proyecto.png");
   background-size: cover;
   background-position: center;
@@ -149,11 +154,11 @@ p {
 }
 
 .card {
-  position:relative;
+  position: relative;
   width: 250px;
   height: 350px;
-  margin: 20px;
-} 
+  margin: 20px;  
+}
 
 .card .face {
   position: absolute;
@@ -167,12 +172,7 @@ p {
 
 .card .front {
   transform: perspective(600px) rotateY(0deg);
-  box-shadow: 0 5px 10px #000;
-}
-
-.card .front .img {  
-  justify-content: center; 
-   
+  box-shadow: 0 5px 10px #000;  
 }
 
 .card .front h4 {
@@ -188,11 +188,11 @@ p {
 
 .card .back {
   transform: perspective(600px) rotateY(180deg);
-  background: #2BA23E;
+  background: #2ba23e;
   padding: 15px;
   color: #f3f3f3;
   display: flex;
-  flex-direction: column;  
+  flex-direction: column;
   text-align: center;
   box-shadow: 0 10px 15px #000;
 }
@@ -210,10 +210,9 @@ p {
 }
 
 .card:hover .front {
-  transform: perspective(600px)  rotateY(180deg);
+  transform: perspective(600px) rotateY(180deg);
 }
 
 .card:hover .back {
-  transform: perspective(600px)  rotateY(360deg);
+  transform: perspective(600px) rotateY(360deg);
 }
-

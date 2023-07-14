@@ -1,7 +1,8 @@
 import data from "./data/rickandmorty/rickandmorty.js";
 import {
   filterBySpecies,
-  filterByEpisodeCount , computeStats,
+  filterByEpisodeCount,
+  computeStats,
   orderAZ,
 } from "./data.js";
 
@@ -15,7 +16,7 @@ function displayCharacters(info) {
   charactersImg.innerHTML = "";
   info.forEach((element) => {
     const characterHTML = `
-      <button class="img" style="height: 200px; width: 200px;">
+      <button class="img" style="height: 250px; width: 200px;">
         <img src="${element.image}" data-name="${element.name}"/>
         <div class="img--label">${element.name}</div>
       </button>
@@ -33,15 +34,23 @@ displayCharacters(dataCard);
 const filterForm = document.getElementById("speciesSelect");
 filterForm.addEventListener("click", (event) => {
   event.preventDefault();
-  const selectedSpecies = event.target.value
+  const selectedSpecies = event.target.value;
   let ordereset = [...dataCard];
-  if (selectedSpecies === "reset"){
-    ordereset 
-  } else{
+  if (selectedSpecies === "reset") {
+    ordereset;
+  } else {
     ordereset = filterBySpecies(dataCard, selectedSpecies);
   }
-  
-    displayCharacters(ordereset);
+
+  displayCharacters(ordereset);
+});
+
+const botonRegreso = document.getElementById("backButton");
+botonRegreso.addEventListener("click", function() {
+  hideCharacterData();
+  section1.style.display = "block";  
+  showFilterForm();
+  hideRegresoButton();
 });
 
 charactersImg.addEventListener("click", (event) => {
@@ -56,15 +65,35 @@ charactersImg.addEventListener("click", (event) => {
     };
 
     showCharacterData(characterData);
-    section1.style.display = "none";
+    section1.style.display = "none";    
     hideFilterForm();
+    showRegresoButton();
   }
 });
+
+function showFilterForm() {
+  filterForm.style.display = "block";
+}
+
+function hideRegresoButton() {
+  botonRegreso.style.display = "none";
+}
+
+function showRegresoButton() {
+  botonRegreso.style.display = "block";
+}
+
+function hideCharacterData() {
+  charactersDate.innerHTML = "";
+}
+
+
 function hideFilterForm() {
   if (filterForm) {
     filterForm.style.display = "none";
   }
 }
+
 
 function showCharacterData(data) {
   charactersDate.innerHTML = `
@@ -78,13 +107,7 @@ function showCharacterData(data) {
     </div>    
    `;
 }
-/*const backButton = document.getElementById("backButton");
 
-backButton.addEventListener("click", () => {
-  backButton.style.display = "block";
-  section1.style.display = "block";
-  charactersDate.innerHTML = "";
-});*/
 
 // Agregar el evento de submit al segundo formulario
 const filterForm2 = document.getElementById("filterForm2");
@@ -109,21 +132,14 @@ selectElement.addEventListener("click", (event) => {
   let order = [...dataCard];
   if (selectedValue === "all") {
     order = dataCard;
-  } else { 
-
-    order = orderAZ(order, selectedValue)
+  } else {
+    order = orderAZ(order, selectedValue);
   }
 
   displayCharacters(order);
 });
 
-const backButton = document.getElementById("backButton");
 
-backButton.addEventListener("click", () => {
-  section1.style.display = "block";
-
-  charactersDate.innerHTML = "";
-});
 
 //Calcular el recuento de personajes por ubicación utilizando la función computeStats()
 const locationStats = computeStats(dataCard);
