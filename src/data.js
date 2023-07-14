@@ -23,19 +23,19 @@ export function filterByEpisodeCount(data, filterType) {
     filteredData1 = data.filter(
       (element) => element.episode.length === minCount
     );
-  } 
-  console.log(filteredData1)
+  }
+  console.log(filteredData1);
   return filteredData1;
 }
 
-export const orderAZ = (data, select) => { 
-  return data.sort((a,b) => {
+export const orderAZ = (data, select) => {
+  return data.sort((a, b) => {
     if (a.name.toLowerCase() < b.name.toLowerCase() && select === "A-Z") {
       return -1;
     } else if (select === "Z-A") {
       return b.name.localeCompare(a.name);
     }
-  })
+  });
 };
 
 export function computeStats(data) {

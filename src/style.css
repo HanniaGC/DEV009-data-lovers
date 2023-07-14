@@ -7,20 +7,21 @@
 header {
   display: flex;
   justify-content: center;
+  margin-bottom: 50px; 
 }
 
 body {
-  /*display: flex;
+  display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: #c7f9cc;
-  background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);*/
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
+  background: url(https://d2lzb5v10mb0lj.cloudfront.net/darkhorse/downloads/desktops/aorickamort/desktop.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-attachment: fixed;
 }
+
 
 .main-container {
   width: 100%;
@@ -29,59 +30,107 @@ body {
 
 nav {
   background-color: #298176;
-  text-align: center;
+  display: flex;
+  justify-content:center;
+  height: 80px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  
 }
 
-@media (min-width: 768px) {
+.menu{
+  display: flex;
+  align-items: center;
+  list-style: none;
+
+}
+
+
+li {
+  font-size: 18px;
+  margin: 0 10px;
+  line-height: 80px;
+  text-transform: uppercase;
+  width: max-content;
+}
+
+@media (max-width: 768px) {
+  .logo{
+  width: 400px;
+   
+  }
   nav {
-    display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    padding: 20px;
+    padding-bottom: 100px;
+    padding-top: 100px;
   }
+  
+.menu{
+  flex-direction: column;
+  margin-right: 0;
+  background-color: #298176;
+  width: 100%;
+  padding: 20px 0;
+}
+body {
+  background-repeat: no-repeat;
+  background-size: 350%;
+  
+}
 }
 
-@media (max-width: 767px) {
-  #selectSepecies,
-  #a-z {
-    margin-bottom: 10px;
-  }
+.filterselect:hover {
+  background-color: #5f9e25; 
+}
+.filterselect{
+  background-color: #298176;
+  font-size: x-large;
+  color: rgb(225, 236, 236);
+  font-weight: 600;
+  border: none;
+  height: 50px;
+  padding: 5px;
+
+}
+.orderselect:hover{
+  background-color: #5f9e25;  
+}
+.orderselect {
+  background-color: #298176;
+  font-size: x-large;
+  color: rgb(241, 245, 245);
+  font-weight: 600;
+  border: none;
+  height: 50px;
+  padding: 5px;
 }
 
-form {
-  display: inline-block;
-  margin: 0;
-  padding: 0;
+.calculationselect:hover{
+  background-color: #5f9e25;  
 }
 
-label {
-  color: #fff;
-  font-weight: bold;
-  margin-right: 5px;
-}
-select {
-  height: 50px; 
+.calculationselect{
+  background-color: #378179;
+  font-size: x-large;
+  color: rgb(239, 247, 247);
+  font-weight: 600;
+  border: none;
+  height: 50px;
   padding: 5px;
 }
 
 button {
-  background-color: #fff;
-  font-size: 20px;
+  background-color: #33867f;
+  font-size: 100px;
+  font-weight: 600;
+  
 }
 
 option {
-  background-color: #333;
-  color: #fff;
-}
-
-button{
-  background-color: #ccc;
-}
-
-#selecteSpecies
-.main-container {
-  width: 100%;
-  margin: auto;
+  background-color: #ffffff;
+  color: #6aadaa; 
+  font-weight: 600;
 }
 
 h2 {
@@ -89,6 +138,10 @@ h2 {
   font-size: 40px;
   padding-top: 25px;
   padding-bottom: 15px;
+}
+section{
+  margin-bottom: 100px;
+  
 }
 
 .characters__img {
@@ -100,26 +153,20 @@ h2 {
 
 .img {
   width: 200px;
-  height: 200px;
+  height: 250px;
   margin: 10px;
   display: inline;
-  font-size: 15px;
+  font-size: 17px;
 }
 
 .img img {
-  width: 100%;
-  height: 150px;
+  width: 180px;
+  height: 200px;
   object-fit: cover;
 }
 
 p {
   font-size: 20px;
-}
-
-#tblEpisodes {
-  justify-content: center;
-  display: flex;
-  font-size: 30px;
 }
 
 #backButton {
@@ -149,11 +196,11 @@ p {
 }
 
 .card {
-  position:relative;
+  position: relative;
   width: 250px;
   height: 350px;
   margin: 20px;
-} 
+}
 
 .card .face {
   position: absolute;
@@ -161,18 +208,17 @@ p {
   height: 100%;
   backface-visibility: hidden;
   border-radius: 10px;
+  border:4px solid #158027;
   overflow: hidden;
   transition: 0.5s;
 }
 
 .card .front {
   transform: perspective(600px) rotateY(0deg);
-  box-shadow: 0 5px 10px #000;
-}
-
-.card .front .img {  
-  justify-content: center; 
-   
+  box-shadow: 0 10px 15px #000;
+  justify-content: center;
+  display: flex;
+  align-items: center;
 }
 
 .card .front h4 {
@@ -188,11 +234,11 @@ p {
 
 .card .back {
   transform: perspective(600px) rotateY(180deg);
-  background: #2BA23E;
+  background: #2b7036;
   padding: 15px;
   color: #f3f3f3;
   display: flex;
-  flex-direction: column;  
+  flex-direction: column;
   text-align: center;
   box-shadow: 0 10px 15px #000;
 }
@@ -210,10 +256,9 @@ p {
 }
 
 .card:hover .front {
-  transform: perspective(600px)  rotateY(180deg);
+  transform: perspective(600px) rotateY(180deg);
 }
 
 .card:hover .back {
-  transform: perspective(600px)  rotateY(360deg);
+  transform: perspective(600px) rotateY(360deg);
 }
-

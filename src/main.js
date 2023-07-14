@@ -1,7 +1,7 @@
 import data from "./data/rickandmorty/rickandmorty.js";
 import {
   filterBySpecies,
-  filterByEpisodeCount , computeStats,
+  filterByEpisodeCount,computeStats,
   orderAZ,
 } from "./data.js";
 
@@ -15,7 +15,7 @@ function displayCharacters(info) {
   charactersImg.innerHTML = "";
   info.forEach((element) => {
     const characterHTML = `
-      <button class="img" style="height: 200px; width: 200px;">
+      <button class="img" style="height: 250px; width: 200px;">
         <img src="${element.image}" data-name="${element.name}"/>
         <div class="img--label">${element.name}</div>
       </button>
@@ -33,15 +33,15 @@ displayCharacters(dataCard);
 const filterForm = document.getElementById("speciesSelect");
 filterForm.addEventListener("click", (event) => {
   event.preventDefault();
-  const selectedSpecies = event.target.value
+  const selectedSpecies = event.target.value;
   let ordereset = [...dataCard];
-  if (selectedSpecies === "reset"){
-    ordereset 
-  } else{
+  if (selectedSpecies === "reset") {
+    ordereset;
+  } else {
     ordereset = filterBySpecies(dataCard, selectedSpecies);
   }
-  
-    displayCharacters(ordereset);
+
+  displayCharacters(ordereset);
 });
 
 charactersImg.addEventListener("click", (event) => {
@@ -87,21 +87,21 @@ backButton.addEventListener("click", () => {
 });*/
 
 // Agregar el evento de submit al segundo formulario
-const filterForm2 = document.getElementById("filterForm2");
-filterForm2.addEventListener("submit", (event) => {
+const filterForm2 = document.getElementById("seasonSelect");
+filterForm2.addEventListener("click", (event) => {
   event.preventDefault();
-
-  const seasonSelect = document.getElementById("seasonSelect");
-  const filterType = seasonSelect.value;
-
-  // Filtrar los personajes por episodio
-  const filteredData1 = filterByEpisodeCount(dataCard, filterType);
-
-  // Mostrar los personajes filtrados
-  displayCharacters(filteredData1);
+  const filterType = event.target.value;
+  let ordercalcul = [...dataCard];
+  if (filterType === "participation"){
+    ordercalcul = dataCard;
+  } else {
+    ordercalcul = filterByEpisodeCount(dataCard, filterType);
+  }
+  
+  displayCharacters(ordercalcul);
 });
 
-const selectElement = document.getElementById("ordered");
+const selectElement = document.getElementById("orderFor");
 
 selectElement.addEventListener("click", (event) => {
   event.preventDefault();
@@ -109,9 +109,8 @@ selectElement.addEventListener("click", (event) => {
   let order = [...dataCard];
   if (selectedValue === "all") {
     order = dataCard;
-  } else { 
-
-    order = orderAZ(order, selectedValue)
+  } else {
+    order = orderAZ(order, selectedValue);
   }
 
   displayCharacters(order);
@@ -129,7 +128,7 @@ backButton.addEventListener("click", () => {
 const locationStats = computeStats(dataCard);
 
 const graphicData = document.getElementById("graphic");
-Chart.defaults.font.size = 20;
+Chart.defaults.font.size = 15;
 const chart = new Chart(graphicData, {
   type: "bar",
   data: {
