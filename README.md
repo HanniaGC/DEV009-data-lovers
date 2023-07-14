@@ -32,7 +32,7 @@ Los principales usuarios de este producto son:
 ### 3. Historias de usuario
 Se nos entrego una data basada en una rapida investigacion sobre la series de Rick and Morty, sobre la informacion que posrian necesitar los usuarios y basadas en esta data construimos las siguientes Historias de usuario con sus respectivos criterios de aceptacion y definiciones de terminado:
 
-<img width="200" src="./src/images/HU1.jpeg"> <img width="200" src="./src/images/HU2.jpeg"> <img width="200" src="./src/images/HU3.jpeg"> <img width="200" src="./src/images/HU4.jpeg">
+<img width="200" src="./src/images/HU1.jpeg"> <img width="200" src="./src/images/HU2.jpeg"> <img width="200" src="./src/images/HU2.png"> <img width="200" src="./src/images/HU4.jpeg">
 
 #### 4. Objetivos de los Usuarios
 
@@ -83,7 +83,7 @@ Listado de problemas que se detectaro con el test de usabilidad:
 
 La página principal muestra tarjetas interactivas de los personajes de "Rick and Morty". Al hacer clic en una tarjeta, te lleva a una ventana oculta que muestra la información detallada sobre el personaje, como su nombre, género, especie, entre otros datos relevantes.
 
-La página también presenta una tabla que muestra las temporadas y sus respectivos capítulos. Además, se muestran tarjetas interactivas con los nombres de los planetas, al pasar el cursor sobre estas tarjetas, se voltean y muestran una lista de los personajes que habitan en cada planeta.
+Además, se muestran tarjetas giratorias con los nombres de los planetas, al pasar el cursor sobre estas tarjetas, se voltean y muestran una lista de los personajes que habitan en cada planeta.
 
 Se han utilizado elementos visuales y colores relacionados con la serie.
 

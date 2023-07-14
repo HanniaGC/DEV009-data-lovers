@@ -1,7 +1,8 @@
 import data from "./data/rickandmorty/rickandmorty.js";
 import {
   filterBySpecies,
-  filterByEpisodeCount,computeStats,
+  filterByEpisodeCount,
+  computeStats,
   orderAZ,
 } from "./data.js";
 
@@ -44,6 +45,14 @@ filterForm.addEventListener("click", (event) => {
   displayCharacters(ordereset);
 });
 
+const botonRegreso = document.getElementById("backButton");
+botonRegreso.addEventListener("click", function() {
+  hideCharacterData();
+  section1.style.display = "block";  
+  showFilterForm();
+  hideRegresoButton();
+});
+
 charactersImg.addEventListener("click", (event) => {
   if (event.target.tagName === "IMG") {
     const characterData = {
@@ -56,15 +65,35 @@ charactersImg.addEventListener("click", (event) => {
     };
 
     showCharacterData(characterData);
-    section1.style.display = "none";
+    section1.style.display = "none";    
     hideFilterForm();
+    showRegresoButton();
   }
 });
+
+function showFilterForm() {
+  filterForm.style.display = "block";
+}
+
+function hideRegresoButton() {
+  botonRegreso.style.display = "none";
+}
+
+function showRegresoButton() {
+  botonRegreso.style.display = "block";
+}
+
+function hideCharacterData() {
+  charactersDate.innerHTML = "";
+}
+
+
 function hideFilterForm() {
   if (filterForm) {
     filterForm.style.display = "none";
   }
 }
+
 
 function showCharacterData(data) {
   charactersDate.innerHTML = `
@@ -78,13 +107,7 @@ function showCharacterData(data) {
     </div>    
    `;
 }
-/*const backButton = document.getElementById("backButton");
 
-backButton.addEventListener("click", () => {
-  backButton.style.display = "block";
-  section1.style.display = "block";
-  charactersDate.innerHTML = "";
-});*/
 
 // Agregar el evento de submit al segundo formulario
 const filterForm2 = document.getElementById("seasonSelect");
@@ -116,13 +139,7 @@ selectElement.addEventListener("click", (event) => {
   displayCharacters(order);
 });
 
-const backButton = document.getElementById("backButton");
 
-backButton.addEventListener("click", () => {
-  section1.style.display = "block";
-
-  charactersDate.innerHTML = "";
-});
 
 //Calcular el recuento de personajes por ubicación utilizando la función computeStats()
 const locationStats = computeStats(dataCard);

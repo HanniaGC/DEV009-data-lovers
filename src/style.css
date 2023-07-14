@@ -16,7 +16,7 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: url(https://d2lzb5v10mb0lj.cloudfront.net/darkhorse/downloads/desktops/aorickamort/desktop.jpg);
+  background: url(./images/desktop\ \(1\).jpg);
   background-repeat: no-repeat;
   background-size: 100%;
   background-attachment: fixed;
@@ -137,7 +137,7 @@ h2 {
   text-align: center;
   font-size: 40px;
   padding-top: 25px;
-  padding-bottom: 15px;
+  padding-bottom: 15px;    
 }
 section{
   margin-bottom: 100px;
@@ -170,6 +170,7 @@ p {
 }
 
 #backButton {
+  display: none;
   background-image: url("./images/Mi proyecto.png");
   background-size: cover;
   background-position: center;
