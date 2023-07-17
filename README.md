@@ -19,7 +19,7 @@
 Este proyecto consiste en la creación de una página interactiva para los seguidores de la serie "Rick and Morty". El objetivo principal es proporcionar una experiencia diferente y divertida para los fans, mostrando de manera interactiva la información de los personajes de la serie. La página incluye funcionalidades como filtrado por especie, ordenado alfabético, cálculo de personajes por planeta y estadísticas de participación en la serie.
 Rick and Morty Fan Page.
 
-![pokemon-data-to-ui](https://user-images.githubusercontent.com/12631491/218505816-c6d11758-9de4-428f-affb-2a56ea4d68c4.png)
+<img width="500" src="./src/images/pagina.png"  >
 
 ## 2. Usuarios Principales del Producto
 
